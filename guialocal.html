@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="DOMLauncher and DOMods, custom HTML5 Android Launcher.">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="js/loading.min.css">
+	
+	
+	<link rel="stylesheet" href="font/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/stylesv2.css?v=1">
+
+	<title>Home</title>
+
+	<script src="js/jquery-3.3.1.min.js"></script> 
+	<script src="js/bootstrap.min.js"></script> 
+	<script src="js/jquery.navigate.js"></script>
+	<script src="js/custom-keyboard-navigation.js"></script>
+   	<script type="text/javascript" src="file:///android_asset/www/cordova.js"></script> 
+	<script src="js/zepto.min.js"></script>
+	<script src="js/jquery.loading.min.js"></script> 
+
+
+</head>
+
+<body class="bg-secondary bg-img">
+	<!-- HEADER -->
+	<nav id="top-nav" class="navbar navbar-dark bg-gradient-up-down">
+		<ul class="navbar-nav">
+			<li class="nav-item ml-3  mt-3">
+				<h3 class="text-white">
+					<div class="d-inline-block" id="fecha_top">
+					Martes 6 de Noviembre 2018 |
+					</div>
+					<div class="d-inline-block"> Hora: <span id="hora_top">8:00pm</span> | 
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" data-toggle="collapse" data-target="#messagesContainer" aria-expanded="false" aria-controls="variable_info2">
+					  		
+								<span class="notify-badge">1</span>
+					      		<img src="./imagesjv/icon_envelope.svg"  alt="" />
+					      		<!--<span class="fa fa-envelope"></span>-->
+							
+						</a>
+					</div>
+				</h3>
+			</li>
+		</ul>
+
+		<a class="navbar-brand" href="#">
+			<img src="./imagesjv/icon_logo.svg" class="align-top" alt="Movich Hotels logo">
+		</a>
+	</nav>
+
+	<!-- MESSAGES -->
+	<div class="messages-container collapse" id="messagesContainer">
+		<button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  		</button>
+		<div class="message">
+			<p class="text-justify"><span class="fa fa-caret-right"></span> Sin mensajes o notificaciones ....</p>
+		</div>
+	</div>
+
+	<!--CONTENT-->
+	<div class="container">
+		<div class="row">
+
+			<!--INFO-->
+			<div class="col-lg-4">
+				<div class="card bg-overlay text-white info-list overflow-auto">
+					<div class="card-body">
+						<a href="./index.html" class="back-btn selectable">
+						<i class="fa fa-chevron-left fa-1.5x"></i>
+						</a>
+						<h4 class="section-title mx-2">
+							Guía local
+						</h4>
+						<div class="clearfix"></div>
+						
+						<nav class="navbar" id="variable_infoParent">
+						
+						
+							<div class="navbar-nav w-100">
+								<!--ITEM 1-->
+								
+								<a href="./guia.html"><button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" >
+									Que hacer en la ciudad
+								</button></a>
+								<!--ITEM 2-->
+								<a href="./mapa.html"><button type="button" class="round-corners-menu-btn selectable activable" >
+									Mapa Ciudad
+								</button></a>
+								<!--ITEM 3 -->
+								<button type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
+									Contáctenos
+								</button>
+								
+								
+							</div>
+						</nav>
+					</div>
+				</div>
+				
+					
+			</div>
+
+			<!--VIDEO-->
+			<div class="col-lg-8">
+				<div id="variableContent" class="card border-0 overflow-auto pt-3" style="display: none;" > 
+					<h3 id="varTitle" class="section-title mb-5">
+						<i class="fa fa-phone-volume fa-1.5x"></i> Extensiones
+					</h3>
+
+					
+				</div>
+				
+				<div id="contacto" class="card border-0 overflow-auto pt-3" style="display: none;" >
+					<div class="row card-text my-2 mx-3 text-white text-center">
+						<div class="col s4"><img src="imgs/conserjeria.png" alt="Conserjeria" width="70%" height="auto"></div>
+						<div class="col s4"><img src="imgs/lavanderia.png" alt="Lavanderia" width="70%" height="auto"></div>
+						<div class="col s4"><img src="imgs/roomservice.png" alt="Roomservice" width="70%" height="auto"></div>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<!--FOOTER-->
+	<nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-gradient-down-up p-2">
+		<div class="menu">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content2" aria-controls="nav-content2" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span> MENU
+			</button>
+		</div>
+
+
+		<div class="collapse navbar-collapse" id="nav-content2">   
+			<a  class="btn menu-icon selectable infoa" href="./info_hotel.html">
+				<div class="col text-center icon-contour">
+						<img src="./imagesjv/icon_info.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span>INFO HOTEL</span>
+				</div>
+			</a>
+
+			
+			<a class="btn menu-icon selectable" href="./tv.html">
+				<div class="col text-center  icon-contour">
+						<img src="./imagesjv/icon_tv.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span>TV</span>
+					
+				</div>
+			</a>
+
+			
+			
+			<a class="btn menu-icon selectable" onclick="aaap('com.netflix.mediaclient')" href="#">
+
+				<div class="col text-center  icon-contour">
+					
+						<img src="./imagesjv/icon_netflix.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span >NETFLIX</span>
+					
+				</div>
+			</a>
+
+			
+			
+			<a class="btn menu-icon selectable" href="./room_service.html">
+				<div class="col text-center icon-contour">
+					<img src="./imagesjv/icon_room_service.svg">
+					<div class="overlay-darken bg-gradient-down-up"></div>
+					<br>
+					<span >ROOM SERVICE</span>
+				</div>
+			</a>
+
+			
+			
+			<a class="btn menu-icon selectable" href="./entertaiment.html">
+				<div class="col text-center  icon-contour">
+					
+						<img src="./imagesjv/icon_entretenimiento.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span >ENTRETENIMIENTO</span>
+					
+				</div>
+			</a>
+
+			
+			
+			<a class="btn menu-icon selectable" href="./servicios.html">
+				<div class="col text-center  icon-contour">
+						<img src="./imagesjv/icon_servicios.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span >SERVICIOS</span>
+					
+				</div>
+			</a>
+
+			
+			
+			<a class="btn menu-icon selectable active" href="./guialocal.html">
+				<div class="col text-center  icon-contour">
+					
+						<img src="./imagesjv/icon_guia_local.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span >GUIA LOCAL</span>
+					
+				</div>
+			</a>
+
+			
+			
+			<a class="btn menu-icon selectable" href="./account.html">
+				<div class="col text-center  icon-contour">
+					
+						<img src="./imagesjv/icon_estado_cuenta.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span >ESTADO DE CUENTA</span>
+					
+				</div>
+			</a>
+		</div>
+
+		
+	</nav>
+  <script type="text/javascript">
+  	var displaying='';
+  	function loadContent(btn){
+  		var animation="slideInRight";
+  		$("#variableContent").hide();
+  		var btnName=$(btn)[0].innerText;
+  		//$("#varTitle").html("Extensiones");
+  		switch(btnName){
+  			case("Que hacer en la ciudad"):
+  				break;
+  			case("Mapa Ciudad"):
+//  				$("#varImage").attr("src","imagesjv/icon_city_map.svg");
+				$("#varImage").css("display", "none");
+  				//$("#map").css("display", "block");
+  				break;
+  			case("Contáctenos"):
+				$("#contacto").css("display", "block");
+  				break;
+  		}
+  		if(!$('#variableContent').is(':visible')){
+  			$("#variableContent").addClass('animated '+animation);
+  			$("#variableContent").show();	       
+            //wait for animation to finish before removing classes
+            window.setTimeout( function(){
+                $("#variableContent").removeClass('animated '+animation);
+            }, 1000);
+        }
+  	}
+
+</script>	
+<script src="js/dmd.js"></script>
+<script src="js/funciones.js"></script>
+</body>
+
+</html>

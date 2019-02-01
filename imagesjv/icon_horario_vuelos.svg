@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="35.094013mm"
+   height="17.80694mm"
+   viewBox="0 0 124.34887 63.095457"
+   id="svg3913"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="icon_horario_vuelos.svg">
+  <defs
+     id="defs3915" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#7696c5"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-36.06342"
+     inkscape:cy="-19.070955"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     inkscape:window-x="49"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3918">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-201.37081,-359.98136)">
+    <g
+       transform="matrix(1.25,0,0,-1.25,-534.09669,709.22214)"
+       id="g3896">
+      <g
+         id="g480"
+         transform="translate(588.374,258.2617)">
+        <path
+           d="m 0,0 c 5.004,1.557 9.646,3.297 14.24,-0.301 3.004,-2.353 6.141,-2.189 9.562,-0.662 3.386,1.514 6.985,2.553 10.479,3.832 0.895,0.326 1.747,0.772 3.437,1.529 -8.268,4.985 -15.868,9.569 -23.642,14.254 4.732,2.088 9.028,3.301 14.171,1.832 9.37,-2.675 18.951,-4.625 28.476,-6.734 1.477,-0.326 3.218,-0.197 4.673,0.252 5.378,1.66 10.679,3.566 16.026,5.332 6.141,2.027 12.125,1.562 17.838,-1.451 2.349,-1.24 4.553,-2.731 4.177,-5.981 C 99.082,8.84 97.085,7.434 94.388,6.598 70.664,-0.754 46.95,-8.137 23.216,-15.461 c -1.813,-0.56 -3.787,-1.17 -5.609,-0.986 -2.178,0.22 -4.967,0.64 -6.275,2.08 C 7.291,-9.922 3.828,-4.951 0,0"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path482"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="g484"
+         transform="translate(640.8711,249.9316)">
+        <path
+           d="m 0,0 c 5.878,1.83 11.316,3.525 17.05,5.311 3.759,-7.825 7.474,-15.557 11.348,-23.618 -2.49,-0.964 -4.751,-1.963 -7.099,-2.668 -0.63,-0.187 -1.75,0.307 -2.268,0.846 C 12.782,-13.602 6.605,-7.01 0,0"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           id="path486"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+</svg>

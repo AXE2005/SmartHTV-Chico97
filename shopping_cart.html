@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="Description" content="DOMLauncher and DOMods, custom HTML5 Android Launcher.">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="font/fontawesome/css/all.min.css">
+	 <link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/stylesv2.css">
+
+	<title>Carrito de compras</title>
+
+
+	<script src="js/jquery-3.3.1.min.js"></script> 
+	<script src="js/bootstrap.min.js"></script> 
+	<script src="js/jquery.navigate.js"></script>
+
+	<script src="js/main.js"></script>
+	<script src="js/custom-keyboard-navigation.js"></script>
+
+
+</head>
+
+<body class="bg-secondary bg-img">
+	<!-- HEADER -->
+		<nav id="top-nav" class="navbar navbar-dark bg-gradient-up-down">
+		<ul class="navbar-nav">
+			<li class="nav-item ml-3  mt-3">
+				<h3 class="text-white">
+					<div class="d-inline-block" id="fecha_top">
+					Martes 6 de Noviembre 2018 |
+					</div>
+					<div class="d-inline-block"> Hora: <span id="hora_top">8:00pm</span> | 
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" data-toggle="collapse" data-target="#messagesContainer" aria-expanded="false" aria-controls="variable_info2">
+					  		
+								<span class="notify-badge">1</span>
+					      		<img src="./imagesjv/icon_envelope.svg"  alt="" />
+					      		<!--<span class="fa fa-envelope"></span>-->
+							
+						</a>
+					</div>
+				</h3>
+			</li>
+		</ul>
+
+		<a class="navbar-brand" href="./apps.html">
+			<img src="./imagesjv/icon_logo.svg" class="align-top" alt="Movich Hotels logo">
+		</a>
+	</nav>
+
+	<!-- MESSAGES -->
+	<div class="messages-container collapse" id="messagesContainer">
+		<button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  		</button>
+		<div class="message">
+			<p class="text-justify"><span class="fa fa-caret-right"></span> Sin mensajes o notificaciones nuevas.....</p>
+		</div>
+	</div>
+
+	<!--CONTENT-->
+	<div class="container">
+		<div class="row">
+
+			<!--INFO-->
+			<div class="col-lg-4">
+				<div class="card bg-overlay text-white info-list overflow-auto">
+					<div class="card-body">
+						<a href="./room_service.html" class="back-btn selectable">
+						<i class="fa fa-arrow-left fa-1.5x"></i>
+						</a>
+						<h4 class="section-title mx-2">
+							Revisión de Cuenta
+						</h4>
+						<div class="clearfix"></div>
+
+						<nav class="navbar" id="variable_infoParent">
+						
+						
+							<div class="navbar-nav w-100">
+								<!--ITEM 1-->
+								
+								<button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" onclick="confirmarPedido()">
+									Ordenar
+								</button>
+
+								<!--ITEM 2-->
+								<button type="button" class="round-corners-menu-btn selectable activable" onclick="showEdit()">
+									Editar
+								</button>
+								<!--ITEM 3 -->
+								<button type="button" class="round-corners-menu-btn selectable activable">
+									Cancelar pedido
+								</button>
+								
+								
+							</div>
+						</nav>
+						
+						
+					</div>
+				</div>
+				
+					
+			</div>
+
+		
+			<div class="col-lg-8">
+					<div class="card border-0 text-center overflow-auto px-5 py-4">
+
+						<h3 class="section-title mb-5">
+							Carrito de Compras
+						</h3>
+						<div id="carritoContent" class="account-summary text-white">
+							
+							<!-- Ejemplos items - este contenido sera reemplazado por javascript -->
+							<div>
+								<span class="text-nowrap">Alojamiento / Noche </span>
+								<div class="price-counter">
+									<span>$150.000</span>
+									<div class="edit-controls">
+										<a class="btn-icon plus selectable-contour selectable" target="count-item1"><span class="fa fa-plus"></span></a>
+										<span id="count-item1" class="food-count">1</span>
+										<a class="btn-icon minus selectable-contour selectable" target="count-item1"><span class="fa fa-minus"></span></a>
+										<button class="btn-text btn-small btn-border-inside selectable-contour selectable">
+											<span>Eliminar</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<!-- Fin Ejemplos items -->
+							
+							<div class="total">
+								<span id="productsTotal" class="price">Total:&nbsp;&nbsp;$600.000</span>
+							</div>
+						</div>
+						<div class="text-center px-2 py-2">
+							<button class="btn-text btn-border-inside selectable-contour selectable edit-controls" onclick="hideEdit()">
+								<span>Guardar cambios</span>
+							</button>
+							<button class="btn-text btn-border-inside selectable-contour selectable edit-controls" onclick="hideEdit()">
+								<span>Cancelar</span>
+							</button>
+						</div>
+						
+						
+					</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<!--FOOTER-->
+	<nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-gradient-down-up p-2">
+		<div class="menu">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content2" aria-controls="nav-content2" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span> MENU
+			</button>
+		</div>
+
+
+			<div class="collapse navbar-collapse" id="nav-content2">   
+				<a  class="btn menu-icon selectable" href="./info_hotel.html">
+					<div class="col text-center icon-contour">
+							<img src="./imagesjv/icon_info.svg">
+							<div class="overlay-darken bg-gradient-down-up"></div>
+							<br>
+							<span>INFO HOTEL</span>
+					</div>
+				</a>
+
+				
+				<a class="btn menu-icon selectable" href="./tv.html">
+					<div class="col text-center  icon-contour">
+							<img src="./imagesjv/icon_tv.svg">
+							<div class="overlay-darken bg-gradient-down-up"></div>
+							<br>
+							<span>TV</span>
+						
+					</div>
+				</a>
+				
+				<a class="btn menu-icon selectable" onclick="aaap('com.netflix.mediaclient')" href="#">
+
+					<div class="col text-center  icon-contour">
+						
+							<img src="./imagesjv/icon_netflix.svg">
+							<div class="overlay-darken bg-gradient-down-up"></div>
+							<br>
+							<span >NETFLIX</span>
+						
+					</div>
+				</a>
+
+				
+				
+				<a class="btn menu-icon selectable" href="./room_service.html">
+					<div class="col text-center icon-contour">
+						<img src="./imagesjv/icon_room_service.svg">
+						<div class="overlay-darken bg-gradient-down-up"></div>
+						<br>
+						<span >ROOM SERVICE</span>
+					</div>
+				</a>
+
+				
+				
+				<a class="btn menu-icon selectable" href="./entertaiment.html">
+					<div class="col text-center  icon-contour">
+						
+							<img src="./imagesjv/icon_entretenimiento.svg">
+							<div class="overlay-darken bg-gradient-down-up"></div>
+							<br>
+							<span >ENTRETENIMIENTO</span>
+						
+					</div>
+				</a>
+
+				
+				
+				<a class="btn menu-icon selectable" href="./servicios.html">
+					<div class="col text-center  icon-contour">
+							<img src="./imagesjv/icon_servicios.svg">
+							<div class="overlay-darken bg-gradient-down-up"></div>
+							<br>
+							<span >SERVICIOS</span>
+						
+					</div>
+				</a>
+
+				
+				
+				<a class="btn menu-icon selectable" href="./guialocal.html">
+					<div class="col text-center  icon-contour">
+						
+							<img src="./imagesjv/icon_guia_local.svg">
+							<div class="overlay-darken bg-gradient-down-up"></div>
+							<br>
+							<span >GUIA LOCAL</span>
+						
+					</div>
+				</a>
+
+				
+				
+				<a class="btn menu-icon selectable active" href="./account.html">
+					<div class="col text-center  icon-contour">
+						
+							<img src="./imagesjv/icon_estado_cuenta.svg">
+							<div class="overlay-darken bg-gradient-down-up"></div>
+							<br>
+							<span >ESTADO DE CUENTA</span>
+						
+					</div>
+				</a>
+			</div>
+
+		
+	</nav>
+  <script type="text/javascript">
+
+$(document).ready(function() {
+	
+
+	miCarrito();
+
+	$(".btn-icon.plus").unbind("click").on("click",function(){
+		var span_target=$(this).attr("target");
+		var id=span_target.replace("count-item","");
+		var current_count=$("#"+span_target).text();
+		var new_count=parseInt(current_count)+1;
+		$("#"+span_target).text(new_count+"");
+
+		var products=null;
+		if(localStorage.getItem('productos')!==null){
+	      products = JSON.parse(localStorage.getItem('productos'));
+	    }
+	    
+	    if(products!==null && products.length>0 && id!=""){
+	    	var proPrice=0;
+	    	for (var i = 0; i < products.length; i++) {
+	    		if(products[i].product_id==id){
+	    			products[i].product_qty=new_count;
+	    			break;
+	    		}
+	    	}
+	    	localStorage.setItem('productos',JSON.stringify(products));
+
+    		var total=obtenerTotal(products);
+    		$("#productsTotal").html('Total:&nbsp;&nbsp;$'+total.toFixed(2));
+	    }
+	});
+
+	$(".btn-icon.minus").on("click",function(){
+		var span_target=$(this).attr("target");
+		var id=span_target.replace("count-item","");
+		var current_count=$("#"+span_target).text();
+		var new_count=parseInt(current_count)-1;
+		if(new_count<1){
+			new_count=1;
+		}
+		$("#"+span_target).text(new_count+"");
+
+		var products=null;
+		if(localStorage.getItem('productos')!==null){
+	      products = JSON.parse(localStorage.getItem('productos'));
+	    }
+	    
+	    if(products!==null && products.length>0 && id!=""){
+	    	var proPrice=0;
+	    	for (var i = 0; i < products.length; i++) {
+	    		if(products[i].product_id==id){
+	    			products[i].product_qty=new_count;
+	    			break;
+	    		}
+	    	}
+	    	localStorage.setItem('productos',JSON.stringify(products));
+
+    		var total=obtenerTotal(products);
+    		$("#productsTotal").html('Total:&nbsp;&nbsp;$'+total.toFixed(2));
+	    }
+	});
+
+	$(".edit-controls").hide();
+
+
+
+});
+
+
+
+function showEdit(){
+	var animation1="fadeIn";
+	if(!$(".edit-controls").is(':visible')){
+		$(".edit-controls").addClass('animated '+animation1);
+		$(".edit-controls").show();	       
+        //wait for animation to finish before removing classes
+        window.setTimeout( function(){
+            $(".edit-controls").removeClass('animated '+animation1);
+        }, 1000);
+        initNavigate();
+    }
+}
+
+function hideEdit() {
+	var animation1="fadeOut";
+	if($(".edit-controls").is(':visible')){
+		$(".edit-controls").addClass('animated '+animation1);
+        //wait for animation to finish before removing classes
+        window.setTimeout( function(){
+            $(".edit-controls").removeClass('animated '+animation1);
+            $(".edit-controls").hide();	   
+            initNavigate();    
+        }, 1000);
+    }
+}
+
+
+</script>	
+
+
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="messageTitle">Resumen de orden</h5>
+      </div>
+      <div class="modal-body" id="messageBody">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer" id="modalFooter">
+        <button type="button" class="btn-text btn-border-inside selectable-contour selectable" data-dismiss="modal"><span>Cancelar</span></button>
+        <button type="button" class="btn-text btn-border-inside selectable-contour selectable" onclick="sendPedido()"><span>Enviar orden</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/dmd.js"></script>
+<script src="js/funciones.js"></script>
+</body>
+
+</html>

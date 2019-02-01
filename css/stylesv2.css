@@ -1,0 +1,829 @@
+@font-face {
+	font-family: 'hypatia-sans-pro', sans-serif;
+	src: url("./fonts/HypatiaSansPro-Regular.otf") format("opentype");
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.8);
+    max-height: 68vh;
+   /* min-height: 68vh; */
+}
+
+body {
+	font-family: 'hypatia-sans-pro', sans-serif !important;
+	font-size: 18px;
+	overflow:hidden;
+}
+
+.container {
+	padding: 5vh 3vw;
+}
+
+.bg-img {
+	/* font-size: 1.6rem; */
+	height: 100vh;
+	background-image: url("../imagesjv/background.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.navbar.navbar-dark {
+	min-height: 10vh;
+	padding: 0!important;
+}
+
+.navbar-brand img {
+	padding: 0;
+	display: inline-block;
+}
+
+.messages-container {
+	border-top:1px solid #666;
+	padding: 0.5rem 2rem;
+	background: rgba(0,0,0,0.66);
+	color: #fff;
+	max-height: 10vh;
+	overflow-y:scroll;
+}
+
+.message {
+	font-size:1rem;
+}
+
+.message p{
+	margin-bottom: 0.4rem;
+}
+
+.vh-15 {
+	height: 15vh;
+}
+
+.vh-20 {
+	height: 20vh;
+}
+
+.vh-55 {
+	margin: 2vh 0;
+	height: 51vh;
+}
+
+.vh-67 {
+	height: 67vh;
+}
+
+.my-vh-1-5 {
+	margin-top: 1.5vh;
+	margin-bottom: 1.5vh;
+}
+
+.vh-70 {
+	height: 70vh;
+}
+
+.mt-1-2vh {
+	margin-top: 1.5vh;
+}
+
+.bg-gradient-up-down {
+	padding-top: 10px;
+	background-color: transparent;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0.66+27 */
+	background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.66) 27%, rgba(0,0,0,0.66) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(0,0,0,0.66) 27%,rgba(0,0,0,0.66) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0.66) 27%,rgba(0,0,0,0.66) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#a8000000',GradientType=0 ); /* IE6-9 */
+
+}
+
+
+.bg-gradient-down-up {
+	background-color: transparent;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.66+73,1+100 */
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.66) 73%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.66) 0%,rgba(0,0,0,0.66) 73%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0,0,0,0.66) 0%,rgba(0,0,0,0.66) 73%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.bg-overlay {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.c-with {
+	width: 100% !important;
+}
+
+.limited {
+	max-height: 600px;
+	max-width: 700px;
+}
+
+.info-list {
+	overflow: auto;
+	overflow-x: hidden;
+}
+/* 
+#variable_info1, #variable_info2, #variable_info3, #variable_info4, #variable_info5 {
+	height: 33vh;
+} */
+
+.detail-list {
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.text-warning {
+	color: #e2c798 !important
+}
+
+.btn-warning {
+	font-size: 1rem;
+	font-weight: 600;
+	color: #212529;
+	background-image: linear-gradient(to bottom, #f2d999, #bc913c);
+	background-color: #bc913c;
+	transition: all ease 300ms;
+}
+
+.btn-warning:hover {
+	background: linear-gradient(to bottom, #fae1a1, #9b6b0d);
+}
+
+.bg-warning {
+	color: #212529;
+	background-image: linear-gradient(to bottom, #f2d999, #bc913c);
+	background-color: #bc913c;
+	border-color: #ffffff;
+}
+
+.c-img-fluid {
+	max-width: 100%;
+	height: 100%;
+}
+
+.overflow-auto {
+	overflow: auto;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.c-font-z {
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+.c-font-z-small {
+	font-size: 1rem;
+}
+.space-bottom {
+	display: block;
+	width: 100%;
+	height: 8rem;
+}
+
+.card-food {
+	max-height: 51vh;
+	overflow-y: auto;
+}
+
+
+a {
+    color: #fff;
+}
+a:hover { 
+color:  #fff;
+}
+
+
+.badged-item {
+    position:relative;
+    padding-right: 0.4rem;
+}
+.notify-badge{
+    position: absolute;
+    right: 0;
+    background: #e4b487;
+    text-align: center;
+    border-radius: 0.8rem 0.8rem 0.8rem 0.8rem;
+    color: #000000;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.8rem;
+}
+
+.selectable-contour:focus, .selectable-contour:hover,.selectable-contour.selected {
+	border: 2px solid #fff;
+	background: rgba(255,255,255,0.05);
+	border-radius:0.4rem; 
+	text-decoration: none;
+}
+
+.menu {
+	text-align: center;
+	color: white!important;
+}
+
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,1);
+    border-color: rgba(255,255,255,1);
+}
+
+.menu-icon .btn {
+	padding:0;
+}
+
+.menu-icon {
+	display: flex!important;
+	flex-wrap: nowrap!important;
+	width: 100%!important;
+	padding-right: 0!important;
+	padding-left: 0!important;
+	color: #fff;
+	border: none!important;
+	padding:0!important;
+	border-radius: 0!important;
+	font-size:0.8rem;
+}
+
+.menu-icon:hover,.menu-icon:focus,.menu-icon.selected,.menu-icon.active {
+	background-color: transparent;
+	
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.66+73,1+100 */
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.66) 73%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.66) 0%,rgba(0,0,0,0.66) 73%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0,0,0,0.66) 0%,rgba(0,0,0,0.66) 73%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.menu-icon.active {
+	color: #fff!important;
+}
+
+.menu-icon div.icon-contour {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	min-height: 11vh;
+	width: 12.5vw;
+	overflow-x:hidden;
+}
+
+
+
+.menu-icon div.icon-contour path {
+	fill:#777777;
+}
+
+.menu-icon div.icon-contour {
+	/*padding-top: 1rem;*/
+}
+
+.menu-icon div.icon-contour span{
+	padding-top: 0.5rem;
+	display: block;
+}
+
+a.menu-icon:active,a.menu-icon:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.menu-icon div.icon-contour img{
+	height: 6vh;
+	max-width: 11.5vh;
+	padding-top: 1vh;
+}
+
+.menu-icon div.icon-contour:hover,.menu-icon div.icon-contour:focus ,.menu-icon.selected div.icon-contour {
+	border: 2px solid #fff;
+	border-radius: 1rem;
+	background: rgba(255,255,255,0.05);
+	fill: #fff;
+	outline: none;
+}
+
+.menu-icon div.icon-contour:hover span,.menu-icon div.icon-contour:focus span {
+	display: block;
+}
+
+.menu-icon div.icon-contour:hover,.menu-icon div.icon-contour:focus,.menu-icon.selected div.icon-contour,.menu-icon.active div.icon-contour {
+	padding-top: inherit;
+}
+
+.menu-icon div.icon-contour:hover .overlay-darken,.menu-icon div.icon-contour:focus .overlay-darken,.menu-icon.selected div.icon-contour .overlay-darken,.menu-icon.active div.icon-contour .overlay-darken {
+	display: none;
+}
+
+.menu-icon div.icon-contour.selected {
+	fill: #fff;
+	outline: none;
+	background: rgba(255,255,255,0.05);
+}
+
+.menu-icon.selected div.icon-contour span,.menu-icon.active div.icon-contour span {
+	display: block;
+}
+
+.menu-icon div.icon-contour a:active img {
+    height: 5vh
+}
+
+.menu-icon div.icon-contour a:active span {
+    font-size: 0.9rem!important;
+}
+
+.overlay-darken {
+	position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+}
+
+.text-yellow {
+	color:#e4b487
+}
+
+.custom-table {
+	width: 100%;
+  	text-align: center;
+  	border-collapse: separate;
+}
+
+.custom-table td{
+	border: 2px solid #f8f9fa!important;
+	padding: 0.1rem 1rem 0.1rem 1rem;
+}
+
+.back-btn {
+	background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border: 2px solid transparent;
+    padding: 0.3rem 0.8rem;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    float: left;
+}
+
+.back-btn:hover, .back-btn:focus, .back-btn.selected {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: 2px solid #fff;
+	outline: none;
+}
+
+.back-btn:active{
+	font-size:0.9rem;
+}
+
+.section-title {
+	display: inline-block;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 1.5rem;
+    padding: 0.35rem 1.5rem;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    width: min-content;
+    white-space: nowrap;
+}
+
+.round-corners-menu-btn {
+	background-color: transparent;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    font-size: 1.3rem;
+    padding: 0.4rem 1.2rem;
+    margin: 0.3rem 0rem;
+    color: #ccc;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.round-corners-menu-btn-centrado {
+	background-color: transparent;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    font-size: 1.5rem;
+    padding: 0.4rem 1.2rem;
+    margin: 0.3rem 0rem;
+    color: #ccc;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.texto-centrado {
+text-align: center !important;
+}
+
+.round-corners-menu-btn:hover, .round-corners-menu-btn:focus, .round-corners-menu-btn.selected {
+	border: 2px solid #fff;
+	background: rgba(255,255,255,0.05);
+	outline: none;
+	color:#fff;
+}
+
+.round-corners-menu-btn:active {
+	border: 2px solid #fff;
+	padding-top:0.6rem;
+	padding-bottom:0.6rem;
+	font-size: 1.2rem;
+	color:#777;
+}
+
+.round-corners-menu-btn.active {
+	outline: none;
+    color: #ffffff;
+    background: rgba(255,255,255,0.2);
+    font-weight: 700;
+}
+
+.round-corners-menu-btn-centrado:hover, .round-corners-menu-btn:focus, .round-corners-menu-btn.selected {
+	border: 2px solid #fff;
+	background: rgba(255,255,255,0.05);
+	outline: none;
+	color:#fff;
+}
+
+.round-corners-menu-btn-centrado:active {
+	border: 2px solid #fff;
+	padding-top:0.6rem;
+	padding-bottom:0.6rem;
+	font-size: 1.2rem;
+	color:#777;
+}
+
+.round-corners-menu-btn-centrado.active {
+	outline: none;
+    color: #ffffff;
+    background: rgba(255,255,255,0.2);
+    font-weight: 700;
+}
+
+
+.bottom-box{
+	min-height: 20%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    top: auto;
+}
+
+.account-summary > div {
+	text-align: left;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-bottom: 2px solid white;
+}
+
+.account-summary div .price {
+	float: right;
+}
+
+.account-summary div.total {
+	float: right;
+	border-bottom: none;
+}
+
+.account-summary div.price-counter{
+	white-space: nowrap;
+	float: right;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	border: none!important;
+}
+
+#infoVuelo{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    border-bottom: 1px solid;
+    border-color: #E0E0E0;
+}
+.aerolinea, .destino, .hora, .llegada{ width: 100%; /* color: #525858;*/}
+
+.pull-right {
+    float: right !important;
+}
+
+.aerolinea { font-weight: 600; font-size: 1.1em; }
+.salida{ font-weight: 400; font-size: 1em; }
+.destino, .hora{font-weight: 400; padding-top: 0px; font-size: .8em; color: #8c8c8c;}
+/*#vuelo{color: #866114; }*/
+
+.service-order div {
+	text-align: left;
+    color: white;
+    padding: 0.5rem 1.2rem;
+}
+
+.service-order div .price {
+	float: right;
+}
+
+.service-order div.total {
+	float: right;
+	border-bottom: none;
+}
+
+.comment-box {
+	border: 2px solid transparent;
+	border-radius: 10px;
+	padding:0.6rem;
+	color: white;
+	text-align: justify;
+}
+
+::-webkit-scrollbar {
+    width: 0.7rem;
+    height: 0.1rem;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track { 
+    -webkit-box-shadow: transparent; 
+    /*-webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.3); */
+    border-radius: 0.1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.3rem;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    background:rgba(255, 255, 255, 0.3);
+}
+
+
+
+/* Buttons */
+    ::-webkit-scrollbar-button:single-button {
+      background-color: transparent;
+            
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      height: 10px;
+    }
+    /* Up */
+    ::-webkit-scrollbar-button:single-button:vertical:decrement {
+    	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%235a6268'><polygon points='0,50 100,50 50,0'/></svg>");
+      
+    }
+
+    /* Down */
+    ::-webkit-scrollbar-button:single-button:vertical:increment {
+   		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%235a6268'><polygon points='0,0 100,0 50,50'/></svg>");   
+    }
+
+
+.service-order div.price-counter{
+	white-space: nowrap;
+	float: right;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+.price-counter div{
+	display: inline-block;
+}
+
+.price-counter .food-count{
+	background: #666;
+    border-radius: 0.2rem;
+    padding: 0.05rem 0.4rem;
+    width: 2rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-icon {
+	background: transparent;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    margin: 0.1rem 0.2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    min-width: 1.5rem;
+    min-height: 1.2rem;
+}
+
+
+.btn-icon:active span {
+    color: #444;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.btn-icon:focus {
+    outline: none;
+}
+
+.btn-text {
+	border: 2px solid transparent;
+    border-radius: 0.5rem;
+	background: transparent;
+    color: white;
+    padding: 0.2rem 1rem;
+    margin: 0.1rem 0.2rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    min-width: 2rem;
+    min-height: 1.8rem;
+    display: inline-block;
+}
+
+.btn-text:active span {
+    color: #444;
+    font-size: 1.4rem;
+    outline: none;
+    vertical-align: middle;
+}
+
+.btn-text:focus {
+    outline: none;
+}
+
+.btn-text.btn-border-inside {
+	padding: 0;
+}
+
+.btn-text.btn-border-inside span {
+	border: 2px solid white;
+    border-radius: 1.5rem;
+    padding: 0.1rem 0.5rem;
+    white-space: nowrap;
+}
+
+.btn-text.btn-border-inside.selected span {
+	border: 2px solid transparent;
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-text.btn-small {
+	font-size:0.8rem;
+}
+
+.btn-text.btn-small:active span {
+    font-size: 0.7rem;
+}
+
+.img-back-white {
+	/*background: rgba(255, 255, 255, 0.7);*/
+	background: #ffffff;
+	padding: 2rem;
+}
+
+
+
+@media (max-width: 1024px){
+	body, html {
+		font-size: 14px;
+	}
+	.menu {
+		width: 100%;
+	}
+	.navbar.navbar-dark {
+	    min-height: 5vh;
+	}
+	.container{
+		padding:5vh 1vw;
+	}
+	.bg-gradient-down-up {
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.66+73,1+100 */
+		background: -moz-linear-gradient(top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 73%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.9) 73%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.9) 73%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a8000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 1280px) {
+	.container {
+		max-width: 95%;
+		font-size: 16px;
+	}
+	.menu-icon {
+		font-size:0.8rem;
+	}
+}
+
+
+@media (max-width: 768px){
+	.card {
+		max-height: fit-content;
+		margin-bottom:3rem;
+	}
+}
+
+@media (min-width: 576px){
+	.modal-dialog {
+	    max-width: 650px !important;
+	    min-width: 550px !important;
+	}
+}
+
+@media (max-width: 425px){
+	#top-nav .navbar-nav {
+		max-width: 65%;
+	}
+	.navbar-nav  h3 {
+		font-size: 1.4rem;
+	}
+	.navbar-brand img{
+		float: right;
+    	display: inherit !important;
+    	width: 80%;
+	}
+}
+
+
+@media (max-width: 375px){
+	.navbar-nav  h3 {
+		font-size: 1.2rem;
+	}
+	.badged-item {
+		padding-top: 0;
+	}
+}
+
+
+@media (min-width: 1910px) {
+	body, html {
+		font-size: 26px;
+	}
+	.menu-icon div.icon-contour {
+    	min-height: 13vh;
+    }
+	.name-food {
+		margin-top: 1.5rem!important;
+	}
+}
+
+.service-order div span.label-product {
+	max-width: 40%;
+	display: inline-block;
+}
+
+.modal-content {
+    background-color: rgba(0,0,0,0.9);
+    border: 1px solid #e9ecef;
+    color:#fff;
+}
+
+.modal .close {
+    color: #fff;
+}
+
+.modal .close:not(:disabled):not(.disabled):hover {
+    color: #fff;
+}
+
+select {
+    display: inline-block;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 1.5rem;
+    padding: 0.35rem 1.5rem;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    width: min-content;
+    white-space: nowrap;
+}
+
+select  option{
+    display: inline-block;
+    float: center;
+    background-color: rgb(1, 1, 1);
+    border-radius: 1.5rem;
+    padding: 0.35rem 1.5rem;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    width: min-content;
+    white-space: nowrap;
+}
+
