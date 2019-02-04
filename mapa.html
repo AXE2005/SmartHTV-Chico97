@@ -60,10 +60,57 @@
       // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
       // to the base of the flagpole.
 
+var estilo = [
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "weight": 1
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.medical",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.sports_complex",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.sports_complex",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+];
+		
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
-          center: {lat: 4.68, lng: -74.04}
+          center: {lat: 4.68, lng: -74.04},
+		  styles: estilo
         });
 
         setMarkers(map);
