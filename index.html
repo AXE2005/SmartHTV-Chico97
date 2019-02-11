@@ -35,12 +35,12 @@
 			<li class="nav-item ml-3  mt-3">
 				<h3 class="text-white">
 					<div class="d-inline-block" id="fecha_top">
-					Martes 6 de Noviembre 2018 |
+					Movich Chico 97 |
 					</div>
-					<div class="d-inline-block"> Hora: <span id="hora_top">8:00pm</span> | 
+					<div class="d-inline-block"> Bogotá - <span id="hora_top">Colombia</span> | 
 						<a class="badged-item d-inline-block selectable-contour selectable" href="#" data-toggle="collapse" data-target="#messagesContainer" aria-expanded="false" aria-controls="variable_info2">
 					  		
-								<span class="notify-badge">1</span>
+								<span class="notify-badge">0</span>
 					      		<img src="./imagesjv/icon_envelope.svg"  alt="" />
 					      		<!--<span class="fa fa-envelope"></span>-->
 							
@@ -64,7 +64,7 @@
 			<div class="col-6 vh-67 my-vh-1-5">
 				<div class="row d-flex flex-column">
 <div class="text-center mt-4">
-											<h2  style="text-align: center;color: #ffffff;"><p>... Cargando Interactividad ... </p></h2>
+											<h2  style="text-align: center;color: #ffffff;"><p>... Cargando ... </p></h2>
 										</div>
 				<!-- <section class="wrapper dark">
 				
@@ -97,7 +97,7 @@
 
 
 		<div class="collapse navbar-collapse" id="nav-content2">   
-							<a class="btn menu-icon selectable" href="./tv.html">
+							<a id="selectedDefault" class="btn menu-icon selectable" href="./tv.html">
 					<div class="col text-center  icon-contour">
 							<img src="./imagesjv/icon_tv.svg">
 							<div class="overlay-darken bg-gradient-down-up"></div>
@@ -190,7 +190,10 @@
 <script src="js/dmd.js"></script>
 <script src="js/funciones.js"></script>
 <script type="text/javascript">
-	setTimeout(autoIni, 50);	
+	setTimeout(autoIni, 50);
+	window.setInterval(function(){
+	autoIni();
+	}, 10000);
 </script>
 </body>
 

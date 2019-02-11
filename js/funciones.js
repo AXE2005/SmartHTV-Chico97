@@ -31,20 +31,24 @@
 		}
 	}
   
-	function aaap(appa){
-		//$.showLoading({name: 'circle-fade',allowHide: true}); 
+	function aaap(appa,actividad){
+		actividad = actividad || 'MainActivity';
+		$.showLoading({name: 'circle-fade',allowHide: true}); 
 		window.launch.app({package:appa, activity:'MainActivity'});
 	}
 
 
 	function autoIni(){
 	//alert ("Inicio funciones");
-	$.showLoading({name: 'circle-fade',allowHide: true});
-	var registro = localStorage.getItem("mem_registro");
+	//$.showLoading({name: 'circle-fade',allowHide: true});
+//	var registro = localStorage.getItem("mem_registro");
+	var registro = "186.116.1.117";
 	var room = localStorage.getItem("mem_room");
 	var uid = "23423423432";
+	var online = navigator.onLine;
 	//var uid = device.uuid;
 	//alert ("uid es: " +uid);
+if (online){
 	if (registro == null){
 		
 		// TV no registrado, imprimo formulario para registrarlo.
@@ -59,7 +63,7 @@
  
 		function tvres(respuesta){
 	 
-		console.log("parseo respuesta header y contenido ");
+		console.log("gogo smarthome!");
 
 		var contenido = respuesta.contenido;
 		var header = respuesta.header;
@@ -76,7 +80,7 @@
 		localStorage.setItem("mem_nombre", nombre);
 		localStorage.setItem("mem_mensajes", mensajes);		
 		
-		$(header).appendTo("head");
+		//$(header).appendTo("head");
 		$('#cuerpo').html(contenido);
 		
 		$.hideLoading();
@@ -85,7 +89,13 @@
 		
 		
 		}
+}else{
+	
+var contenido = '<div class="container content px-5"><div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden"><div class="col-6 vh-67 my-vh-1-5"><div class="row d-flex flex-column"><div class="col-12"><div class="card bg-overlay text-white"><div class="card-body"><h1 class="card-title text-warning">SmartHotel TV</h1><p class="card-text justify-content-center">Por favor conectarse a la red del hotel para poder disfrutar de una mejor experiencia en linea !</p></div></div></div><div class="col-12 mt-3 text-right"><button onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')"> Abrir Conexiones </button></div><div class="w-100"></div></div></div></div></div></div></div></div></div> ';
+		$('#cuerpo').html(contenido);
+		$.hideLoading();
 
+}
 	}
 	
 
@@ -257,13 +267,8 @@ function checkKey(e){
             }      
 }
 
+function servicios(){
 
-
-
-$(document).ready(function(){
-	
-$(document).keydown (checkKey);
-	
 	var date = new Date();
 
 	var days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
@@ -274,13 +279,29 @@ $(document).keydown (checkKey);
 
 	//Miércoles 9 de octubre de 2018 Hora: 5:00 p
 	var fechaTop = days[date.getDay()] +" "+ date.getDate() + " de " + monthNames[date.getMonth()] + " de " + date.getFullYear() + " |";
-	var horaTop =  date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }); //date.getHours()+":"+date.getMinutes();
+	var horaTop =  date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: "America/Bogota" }); //date.getHours()+":"+date.getMinutes();
 //	var fechaSoloDia = "Octubre " + date.getDate();
 	
 	$('#fecha_top').html(fechaTop);
-	$('#hora_top').html(horaTop);	
+	$('#hora_top').html(horaTop);
+	$.hideLoading();
+}
+
+
+
+$(document).ready(function(){
+
+//$.showLoading({name: 'circle-fade',allowHide: true});
 	
+$(document).keydown (checkKey);
+		
 	iniMenusActions();
+//	console.log("ready func!");
+	window.setInterval(function(){	
+	//console.log("Llamo servicios");
+	setTimeout(servicios, 1000);
+	}, 5000);
+
 	
 });	
 //var urlinfo = localStorage.getItem("mem_urlinfo"); $('a.infoa').attr("href", urlinfo);
