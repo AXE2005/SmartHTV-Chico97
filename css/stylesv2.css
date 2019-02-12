@@ -42,7 +42,7 @@ body {
 .messages-container {
 	border-top:1px solid #666;
 	padding: 0.5rem 2rem;
-	background: rgba(0,0,0,0.66);
+	background: rgba(0, 0, 0, 0.94);
 	color: #fff;
 	max-height: 10vh;
 	overflow-y:scroll;

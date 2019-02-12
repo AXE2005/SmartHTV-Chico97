@@ -23,7 +23,7 @@
 		
 		localStorage.setItem("mem_reserva", reserva);
 		localStorage.setItem("mem_nombre", nombre);
-		localStorage.setItem("mem_mensajes", mensajes);
+		//localStorage.setItem("mem_mensajes", []);
 		
 		$(header).appendTo("head");
 		$('#cuerpo').html(contenido);
@@ -72,13 +72,13 @@ if (online){
 		var header = respuesta.header;
 		var reserva = respuesta.reserva;
 		var nombre = respuesta.nombre;
-		var mensajes = respuesta.mensajes;
+		//var mensajes = respuesta.mensajes;
 		var urlinfo = respuesta.urlinfo;
 		//var urlinfo = localStorage.getItem("mem_urlinfo");$('a.infoa').attr("href", urlinfo);
 		localStorage.setItem("mem_urlinfo", urlinfo);
 		localStorage.setItem("mem_reserva", reserva);
 		localStorage.setItem("mem_nombre", nombre);
-		localStorage.setItem("mem_mensajes", mensajes);		
+		//localStorage.setItem("mem_mensajes", []);		
 		
 		//$(header).appendTo("head");
 		$('#cuerpo').html(contenido);
@@ -192,10 +192,15 @@ console.log("pido cuenta datos: " +control_reserva +" hab: "+ control_room);
 						$.get("http://186.116.1.117/servicios/cuenta.php",{reserva: control_reserva,room: control_room}, cuentares, "jsonp");
  function cuentares(respuesta){
 	 html ='';
+	 var totalc = 0;
 	 html +='<div class="introForm" style=" allign:center; width: 90%;"><p>Estado de cuenta para reserva #'+control_reserva+':</p><br></div>';
 	 $.each(respuesta, function() {
      html += '<div><span>'+this['cargo']+'</span><span class="price">'+this['precio']+'</span></div>';
+	 var totaltempnum = this['precio'].replace(/\D/g, '');
+	 var totaltempint = parseInt(totaltempnum);
+ 	 var totalc = totalc + totaltempint;
 	 });
+	 html += '<div><span>Total: </span><span class="price">'+totalc+'</span></div>';
 	 $("#cuenta").html(html);
 	 $.hideLoading();
 	 
@@ -226,7 +231,7 @@ function goservicios(servicio) {
   
   
   
-  var msg="<p>Se ha realizado su solicitud de "+servicio+" para "+opcion+" con &eacute;xito.</p><p>Estamos procesandola y enviandola al departamento adecuado. </p>";
+  var msg="<p>Se ha realizado su solicitud de "+servicio+" para "+opcion+" con &eacute;xito.</p><p>Estamos procesandola y enviandola al departamento adecuado. Recibir&aacute; un mensaje de notificaci&oacute;n cuando &eacute;esta sea aceptada y se encuentre en proceso.</p>";
   
   showMessage(msg,true);
   var animation="slideInRight";
@@ -267,15 +272,42 @@ function checkKey(e){
             }      
 }
 
-function servicios(){
 
-	var date = new Date();
+
+function tvhome(){
+		
+		//console.log("tv home go");
+		var registro = "186.116.1.117";
+		var room = localStorage.getItem("mem_room");
+		var nombre = localStorage.getItem("mem_nombre");
+		var uid = "23423423432";	
+		
+		$.get("http://"+ registro + "/servicios/tv-home.php",{room: room, uid: uid, nombre: nombre}, tvres, "jsonp");
+ 
+		function tvres(respuesta){
+	 
+
+		var contenido = respuesta.contenido;
+		
+		//$(header).appendTo("head");
+		$('#widgets').html(contenido);
+		
+		$.hideLoading();
+		
+		}
+		
+}
 
 	var days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 	
 	var monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
 	  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
 	];
+
+
+function servicios(){
+
+	var date = new Date();
 
 	//Miércoles 9 de octubre de 2018 Hora: 5:00 p
 	var fechaTop = days[date.getDay()] +" "+ date.getDate() + " de " + monthNames[date.getMonth()] + " de " + date.getFullYear() + " |";
@@ -284,7 +316,34 @@ function servicios(){
 	
 	$('#fecha_top').html(fechaTop);
 	$('#hora_top').html(horaTop);
-	$.hideLoading();
+
+	
+		var registro = "186.116.1.117";
+		var room = localStorage.getItem("mem_room");
+		var mensajes = JSON.parse(localStorage.getItem("mem_mensajes","[]"));
+		var mensajesNew = [];
+		//var uid = "23423423432";
+		
+		$.get("http://"+ registro + "/servicios/servicios.php",{room: room}, tvres, "jsonp");
+
+			function tvres(respuesta){
+ 			//console.log("respuesta: "+JSON.stringify(respuesta, null, 4));			
+				html ='';
+				//mensajesNew = $.merge(mensajes, respuesta);
+				mensajesNew = mensajes.concat(respuesta);
+				//console.log(typeof mensajesNew);
+				//console.log("respuesta 2: "+JSON.stringify(mensajesNew, null, 4));
+				$( ".message" ).remove();
+				
+				$.each(mensajesNew, function() {
+					html += '<div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span> '+this['mensaje']+'</p></div>';
+				});
+				$("#messagesContainer").append( html );
+				localStorage.setItem("mem_mensajes",JSON.stringify(mensajesNew));
+				$('.notify-badge').html(mensajesNew.length);
+		 		$.hideLoading();
+			}
+		
 }
 
 
@@ -296,10 +355,11 @@ $(document).ready(function(){
 $(document).keydown (checkKey);
 		
 	iniMenusActions();
+	servicios();
 //	console.log("ready func!");
 	window.setInterval(function(){	
 	//console.log("Llamo servicios");
-	setTimeout(servicios, 1000);
+	servicios();
 	}, 5000);
 
 	
