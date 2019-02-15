@@ -91,6 +91,9 @@
 								<!--ITEM 1-->
 								
 								<button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
+									Guía de Uso
+								</button>
+								<button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
 									Cine
 								</button>
 								<!--ITEM 2-->
@@ -122,7 +125,7 @@
 			<!--VIDEO-->
 			<div class="col-lg-8">
 				<div id="variableContent" class="card border-0 overflow-auto pt-3" style="display: none;" > 
-					<img id="varImage" class="card-img-top img-back-white" src="imagesjv/cine.png" onClick="alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')">                    					
+					<img id="varImage" class="card-img-top" src="imagesjv/cine.png" onClick="alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')">                    					
 				</div>
 			</div>
 
@@ -247,7 +250,10 @@
   		var btnName=$(btn)[0].innerText;
   		//$("#varTitle").html(btnName);
   		switch(btnName){
-  			case("Cine"):
+  			case("Instrucciones"):
+  				$("#varImage").attr("src","imgs/manualcontrol.png");
+				break;
+			case("Cine"):
   				$("#varImage").attr("src","imagesjv/cine.png");
 				break;
   			case("Variedades"):

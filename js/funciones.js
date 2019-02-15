@@ -41,8 +41,8 @@
 	function autoIni(){
 	//alert ("Inicio funciones");
 	//$.showLoading({name: 'circle-fade',allowHide: true});
-//	var registro = localStorage.getItem("mem_registro");
-	var registro = "186.116.1.117";
+	var registro = localStorage.getItem("mem_registro");
+	//var registro = "186.116.1.117";
 	var room = localStorage.getItem("mem_room");
 	var uid = "23423423432";
 	var online = navigator.onLine;

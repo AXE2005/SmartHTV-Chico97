@@ -60,7 +60,9 @@
 						<a href="#" class="c-with-2 text-left"><button type="button" id="variable_button1" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with">
 							Todas las Aplicaciones
 						</button></a>																
-
+						<button type="button" id="variable_button1" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="borrartodo()">
+							Reiniciar Terminal
+						</button
 					</div>
 				</nav>
 			</div>
@@ -96,6 +98,11 @@ Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
 
 function aaap(appa){
 	window.launch.app({package:appa, activity:'MainActivity'});
+}
+
+function borrartodo() {
+localStorage.clear();
+location.href = "index.html";
 }
 
 
