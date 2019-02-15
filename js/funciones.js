@@ -342,6 +342,11 @@ function servicios(){
 				localStorage.setItem("mem_mensajes",JSON.stringify(mensajesNew));
 				$('.notify-badge').html(mensajesNew.length);
 		 		$.hideLoading();
+					//console.log("lengths: " + mensajes.length + mensajesNew.length);
+					if(mensajes.length < mensajesNew.length){
+					var audio = new Audio('mensaje.mp3');
+					audio.play();
+					}
 			}
 		
 }
