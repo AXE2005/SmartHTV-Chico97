@@ -23,7 +23,7 @@
 		
 		localStorage.setItem("mem_reserva", reserva);
 		localStorage.setItem("mem_nombre", nombre);
-		//localStorage.setItem("mem_mensajes", []);
+		localStorage.getItem("mem_mensajes","[]")
 		
 		$(header).appendTo("head");
 		$('#cuerpo').html(contenido);
@@ -331,8 +331,8 @@ function servicios(){
 				html ='';
 				//mensajesNew = $.merge(mensajes, respuesta);
 				mensajesNew = mensajes.concat(respuesta);
-				//console.log(typeof mensajesNew);
-				//console.log("respuesta 2: "+JSON.stringify(mensajesNew, null, 4));
+				console.log(typeof mensajesNew);
+				console.log("respuesta 2: "+JSON.stringify(mensajesNew, null, 4));
 				$( ".message" ).remove();
 				
 				$.each(mensajesNew, function() {
@@ -342,7 +342,7 @@ function servicios(){
 				localStorage.setItem("mem_mensajes",JSON.stringify(mensajesNew));
 				$('.notify-badge').html(mensajesNew.length);
 		 		$.hideLoading();
-					//console.log("lengths: " + mensajes.length + mensajesNew.length);
+					console.log("lengths: " + mensajes.length + mensajesNew.length);
 					if(mensajes.length < mensajesNew.length){
 					var audio = new Audio('mensaje.mp3');
 					audio.play();
