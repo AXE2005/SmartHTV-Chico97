@@ -1,32 +1,40 @@
 
 	function login(){
 		
-		var uid = "2323242142";//device.uuid;
+		//var uid = "2323242142";
+		var uid = device.uuid;
 		var room_form = $("#room").val();
 		var ip_form = $("#ip").val();
+		var ip_device = $("#ip_device").val();
+		var serial = $("#serial").val();
+		var versionSmart = "1.0";
 		
 		localStorage.setItem("mem_registro", ip_form);
 		localStorage.setItem("mem_room", room_form);
 		
 		
-		$.get("http://"+ ip_form + "/servicios/tv.php",{room: room_form, uid: uid}, tvres, "jsonp");
+		$.get("http://"+ ip_form + "/servicios/tv.php",{room: room_form, uid: uid, version: versionSmart, ip: ip_device, serial: serial}, tvres, "jsonp");
  
 		function tvres(respuesta){
 	 
-		console.log("parseo respuesta header y contenido ");
+			console.log("parseo respuesta header y contenido ");
 
-		var contenido = respuesta.contenido;
-		var header = respuesta.header;
-		var reserva = respuesta.reserva;
-		var nombre = respuesta.nombre;
-		var mensajes = respuesta.mensajes;
-		
-		localStorage.setItem("mem_reserva", reserva);
-		localStorage.setItem("mem_nombre", nombre);
-		localStorage.getItem("mem_mensajes","[]")
-		
-		$(header).appendTo("head");
-		$('#cuerpo').html(contenido);
+			var contenido = respuesta.contenido;
+			var header = respuesta.header;
+			var reserva = respuesta.reserva;
+			var nombre = respuesta.nombre;
+			var mensajes = respuesta.mensajes;
+			var salida = respuesta.salida;
+			var llegada = respuesta.llegada;
+			
+			localStorage.setItem("mem_reserva", reserva);
+			localStorage.setItem("mem_nombre", nombre);
+			localStorage.setItem("mem_llegada", llegada);
+			localStorage.setItem("mem_salida", salida);
+			localStorage.setItem("mem_mensajes","[]")
+			
+			$(header).appendTo("head");
+			$('#cuerpo').html(contenido);
 		
 		}
 	}
@@ -44,15 +52,15 @@
 	var registro = localStorage.getItem("mem_registro");
 	//var registro = "186.116.1.117";
 	var room = localStorage.getItem("mem_room");
-	var uid = "23423423432";
+	//var uid = "23423423432";
 	var online = navigator.onLine;
-	//var uid = device.uuid;
+	var uid = device.uuid;
 	//alert ("uid es: " +uid);
 if (online){
 	if (registro == null){
 		
 		// TV no registrado, imprimo formulario para registrarlo.
-		var contenido = '<div class="container content px-5"><div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden"><div class="col-6 vh-67 my-vh-1-5"><div class="row d-flex flex-column"><div class="col-12"><div class="card bg-overlay text-white"><div class="card-body"><h1 class="card-title text-warning">SmartHotel TV</h1><p class="card-text">Este TV aún no se encuentra registrado en SmartHost, ingrese los datos y registrelo:</p></div></div></div><div class="col-12"><div class="card bg-overlay text-white"><div class="card-body"><div class="row"><div class="col-5 mx-4 border border-light">Dirección SmartHost</div><div class="col-5 text-center border border-light"><input type="text" id="ip" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 mt-2 border border-light">Habitación</div><div class="col-5 mt-2 text-center border border-light"><input type="text" id="room" placeholder="xxxx" ></div><div class="w-100"></div><div class="col-12 mt-3 text-right"><button onClick="login()"> Registrar! </button></div><div class="w-100"></div></div></div></div></div></div></div></div></div> ';
+		var contenido = '<div class="container content px-5"> <div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden"> <div class="col-6 vh-67 my-vh-1-5"> <div class="row d-flex flex-column"> <div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <h1 class="card-title text-warning">SmartHotel TV</h1> <p class="card-text">Este TV aún no se encuentra registrado en SmartHost, ingrese los datos y registrelo:</p></div></div></div><div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <div class="row"> <div class="col-5 mx-4 border border-light">Dirección SmartHost</div><div class="col-5 text-center border border-light"><input type="text" id="ip" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">IP Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="ip_device" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">Serial Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="serial" placeholder="xxxx" ></div><div class="w-100"></div><div class="col-5 mx-4 mt-2 border border-light">Habitación</div><div class="col-5 mt-2 text-center border border-light"><input type="text" id="room" placeholder="xxx" ></div><div class="w-100"></div><div class="col-12 mt-3 text-right"><button onClick="login()"> Registrar! </button></div><div class="w-100"></div></div></div></div></div></div></div></div></div>';
 		$('#cuerpo').html(contenido);
 		$.hideLoading();
 		
@@ -63,27 +71,31 @@ if (online){
  
 		function tvres(respuesta){
 	 
-		console.log("gogo smarthome!");
+			console.log("gogo smarthome!");
 
-		var contenido = respuesta.contenido;
-		var header = respuesta.header;
-		
-		var contenido = respuesta.contenido;
-		var header = respuesta.header;
-		var reserva = respuesta.reserva;
-		var nombre = respuesta.nombre;
-		//var mensajes = respuesta.mensajes;
-		var urlinfo = respuesta.urlinfo;
-		//var urlinfo = localStorage.getItem("mem_urlinfo");$('a.infoa').attr("href", urlinfo);
-		localStorage.setItem("mem_urlinfo", urlinfo);
-		localStorage.setItem("mem_reserva", reserva);
-		localStorage.setItem("mem_nombre", nombre);
-		//localStorage.setItem("mem_mensajes", []);		
-		
-		//$(header).appendTo("head");
-		$('#cuerpo').html(contenido);
-		
-		$.hideLoading();
+			var contenido = respuesta.contenido;
+			var header = respuesta.header;
+			
+			var contenido = respuesta.contenido;
+			var header = respuesta.header;
+			var reserva = respuesta.reserva;
+			var nombre = respuesta.nombre;
+			//var mensajes = respuesta.mensajes;
+			var urlinfo = respuesta.urlinfo;
+			var salida = respuesta.salida;
+			var llegada = respuesta.llegada;
+			//var urlinfo = localStorage.getItem("mem_urlinfo");$('a.infoa').attr("href", urlinfo);
+			localStorage.setItem("mem_urlinfo", urlinfo);
+			localStorage.setItem("mem_reserva", reserva);
+			localStorage.setItem("mem_nombre", nombre);
+			//localStorage.setItem("mem_mensajes", "[]"); no puedo porque nunca tendria mensajes siempre los borraria
+			localStorage.setItem("mem_llegada", llegada);
+			localStorage.setItem("mem_salida", salida);
+			
+			//$(header).appendTo("head");
+			$('#cuerpo').html(contenido);
+			
+			$.hideLoading();
 		
 		}
 		
@@ -263,11 +275,9 @@ function checkKey(e){
      switch (e.keyCode) {
         case 221:
 			$.showLoading({name: 'circle-fade',allowHide: true});
+			localStorage.setItem("conf",(parseInt(localStorage.getItem("conf","1")+1)));
+			if (localStorage.getItem("conf") == "111111111111") {location.href="./apps.html";}                                                                                                                                                                                                                                                                                                                                             
             location.href="./room_service.html";
-            break;
-        case 101:
-			$.showLoading({name: 'circle-fade',allowHide: true});
-            location.href="./apps.html";
             break;			
             }      
 }
@@ -280,9 +290,12 @@ function tvhome(){
 		var registro = "186.116.1.117";
 		var room = localStorage.getItem("mem_room");
 		var nombre = localStorage.getItem("mem_nombre");
-		var uid = "23423423432";	
+		var llegada = localStorage.getItem("mem_llegada");		
+		var salida = localStorage.getItem("mem_salida");
+		var uid = device.uuid;
+		//var uid = "23423423432";	
 		
-		$.get("http://"+ registro + "/servicios/tv-home.php",{room: room, uid: uid, nombre: nombre}, tvres, "jsonp");
+		$.get("http://"+ registro + "/servicios/tv-home.php",{room: room, uid: uid, nombre: nombre, llegada: llegada, salida: salida}, tvres, "jsonp");
  
 		function tvres(respuesta){
 	 
@@ -320,7 +333,9 @@ function servicios(){
 	
 		var registro = "186.116.1.117";
 		var room = localStorage.getItem("mem_room");
-		var mensajes = JSON.parse(localStorage.getItem("mem_mensajes","[]"));
+		var mem_mensa = localStorage.getItem("mem_mensajes","[]");
+		if (mem_mensa == null) {var mem_mensa = "[]";}
+		var mensajes = JSON.parse(mem_mensa);
 		var mensajesNew = [];
 		//var uid = "23423423432";
 		
@@ -365,7 +380,7 @@ $(document).keydown (checkKey);
 	window.setInterval(function(){	
 	//console.log("Llamo servicios");
 	servicios();
-	}, 5000);
+	}, 20000);
 
 	
 });	
