@@ -280,9 +280,7 @@ function showMessage(message,autoclose){
 function checkKey(e){
      switch (e.keyCode) {
         case 221:
-			$.showLoading({name: 'circle-fade',allowHide: true});
-			localStorage.setItem("conf",(parseInt(localStorage.getItem("conf","1")+1)));
-			if (localStorage.getItem("conf") == "111111111111") {location.href="./apps.html";}                                                                                                                                                                                                                                                                                                                                             
+			$.showLoading({name: 'circle-fade',allowHide: true});                                                                                                                                                                                                                                                                                                                                           
             location.href="./room_service.html";
             break;			
             }      
@@ -389,6 +387,11 @@ function servicios(){
 	}	
 }
 
+
+function ajustes(){
+			localStorage.setItem("conf",(parseInt(localStorage.getItem("conf","1")+1)));
+			if (localStorage.getItem("conf") == "11111") {location.href="./apps.html";} 
+}
 
 
 $(document).ready(function(){
