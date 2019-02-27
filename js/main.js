@@ -137,9 +137,11 @@ function srcImg(btn,id){
     $("#productDescription").html(descripcion);
     $("#productPrice").html(precio);
     $("#productPrice1").html(precio);
-    $("#totalProducto").html('Total:&nbsp;&nbsp;'+precio);
+    $("#totalProducto").html('&nbsp;&nbsp;'+precio);
     $("#productImage").attr("src",imagen).fadeIn();
     $("#count-item1").html("1");
+	$('#productPrice').formatCurrency({ roundToDecimalPlace: -2, groupDigits: false });
+	$('.price').formatCurrency({ roundToDecimalPlace: -2, groupDigits: false });
 
     animate(btn);
 }
@@ -348,6 +350,12 @@ function confirmarPedido(){
   
   showMessage(msg,false);
 }
+
+function cancelarPedido(){
+localStorage.setItem('productos',"[]");
+location.href = "room_service.html";
+}
+
 
 function sendPedido(){
 	

@@ -33,7 +33,7 @@
 
 <body class="bg-secondary bg-img">
 	<!-- HEADER -->
-	<nav id="top-nav" class="navbar navbar-dark bg-gradient-up-down">
+	<nav id="top-nav" class="navbar navbar-dark bg-gradient-up-down notranslate">
 		<ul class="navbar-nav">
 			<li class="nav-item ml-3  mt-3">
 				<h3 class="text-white">
@@ -47,16 +47,34 @@
 					      		<img src="./imagesjv/icon_envelope.svg"  alt="" />
 					      		<!--<span class="fa fa-envelope"></span>-->
 							
+						</a> |
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('es')">
+					      		<img src="./imgs/es.png" height="25px" width="auto" alt="Translate">
 						</a>
-					</div>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('en')">
+					      		<img src="./imgs/en.png" height="25px" width="auto" alt="Translate">
+						</a>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('pt')">
+					      		<img src="./imgs/pt.png" height="25px" width="auto" alt="Translate">
+						</a>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('fr')">
+					      		<img src="./imgs/fr.png" height="25px" width="auto" alt="Translate">
+						</a>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('hi')">
+					      		<img src="./imgs/hi.png" height="25px" width="auto" alt="Translate">
+						</a>
+						
+					</div><div id="google_translate_element" style="display:none !important"></div>
+					
 				</h3>
 			</li>
 		</ul>
 
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="./apps.html">
 			<img src="./imagesjv/icon_logo.svg" class="align-top" alt="Movich Hotels logo">
 		</a>
 	</nav>
+    <audio id="mensajeaudio" src="mensaje.mp3" preload="auto"></audio>
 
 	<!-- MESSAGES -->
 	<div class="messages-container collapse" id="messagesContainer">
@@ -93,11 +111,11 @@
 								<button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
 									Guía de Uso
 								</button>
-								<button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
+								<button type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
 									Cine
 								</button>
 								<!--ITEM 2-->
-								<button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
+								<button type="button" class="round-corners-menu-btn selectable activable" onclick="loadContent(this)">
 									Variedades
 								</button>
 								<!--ITEM 3 -->
@@ -124,7 +142,7 @@
 
 			<!--VIDEO-->
 			<div class="col-lg-8">
-				<div id="variableContent" class="card border-0 overflow-auto pt-3" style="display: none;" > 
+				<div id="variableContent" class="card border-0 overflow-auto pt-3" style="display: block;" > 
 					<img id="varImage" class="card-img-top" src="imgs/manualcontrol.png" onClick="alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')">                    					
 				</div>
 			</div>
@@ -285,6 +303,45 @@
 </script>	
 <script src="js/dmd.js"></script>
 <script src="js/funciones.js"></script>
+<script type="text/javascript">
+	$.showLoading({name: 'circle-fade',allowHide: true}); 
+	$("#roomspan").html(localStorage.getItem("mem_room"));
+	setTimeout(autoIni, 300);
+	window.setInterval(function(){
+	tvhome();
+	}, 30000);
+</script>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: "es",includedLanguages: "es,pt,fr,ja,en,hi"}, 'google_translate_element');
+}
+
+function traducir(lenguaje) {
+  var language = lenguaje;
+  localStorage.setItem("mem_lenguaje",language);
+  var selectField = document.querySelector("#google_translate_element select");
+  for(var i=0; i < selectField.children.length; i++){
+    var option = selectField.children[i];
+    if(option.value==language){
+       selectField.selectedIndex = i;
+       selectField.dispatchEvent(new Event('change'));
+       break;
+    }
+  }
+}
+
+</script>
+
+<script type="text/javascript">
+function autoTranslate(){
+	var langu = localStorage.getItem("mem_lenguaje");
+	if (langu != null){traducir(langu)};
+}
+
+setTimeout(autoTranslate,500);
+</script>
+<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

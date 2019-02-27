@@ -13,6 +13,7 @@ body {
 	font-family: 'hypatia-sans-pro', sans-serif !important;
 	font-size: 18px;
 	overflow:hidden;
+	top: 0px !important;
 }
 
 .container {
@@ -830,4 +831,8 @@ select  option{
 .row {
     margin-right: 0px !important;
     margin-left: 0px !important;
+}
+
+.goog-te-banner-frame {
+  display:none !important;
 }

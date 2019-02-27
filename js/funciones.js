@@ -26,12 +26,14 @@
 			var mensajes = respuesta.mensajes;
 			var salida = respuesta.salida;
 			var llegada = respuesta.llegada;
+			var idioma = respuesta.idioma;
 			
 			localStorage.setItem("mem_reserva", reserva);
 			localStorage.setItem("mem_nombre", nombre);
 			localStorage.setItem("mem_llegada", llegada);
 			localStorage.setItem("mem_salida", salida);
-			localStorage.setItem("mem_mensajes","[]")
+			localStorage.setItem("mem_mensajes","[]");
+			if (idioma == "es"){localStorage.setItem("mem_lenguaje", idioma)}else{localStorage.setItem("mem_lenguaje", null)};
 			
 			$(header).appendTo("head");
 			$('#cuerpo').html(contenido);
@@ -56,58 +58,61 @@
 	var online = navigator.onLine;
 	var uid = device.uuid;
 	//alert ("uid es: " +uid);
-if (online){
-	if (registro == null){
-		
-		// TV no registrado, imprimo formulario para registrarlo.
-		var contenido = '<div class="container content px-5"> <div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden"> <div class="col-6 vh-67 my-vh-1-5"> <div class="row d-flex flex-column"> <div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <h1 class="card-title text-warning">SmartHotel TV</h1> <p class="card-text">Este TV aún no se encuentra registrado en SmartHost, ingrese los datos y registrelo:</p></div></div></div><div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <div class="row"> <div class="col-5 mx-4 border border-light">Dirección SmartHost</div><div class="col-5 text-center border border-light"><input type="text" id="ip" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">IP Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="ip_device" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">Serial Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="serial" placeholder="xxxx" ></div><div class="w-100"></div><div class="col-5 mx-4 mt-2 border border-light">Habitación</div><div class="col-5 mt-2 text-center border border-light"><input type="text" id="room" placeholder="xxx" ></div><div class="w-100"></div><div class="col-12 mt-3 text-right"><button onClick="login()"> Registrar! </button></div><div class="w-100"></div></div></div></div></div></div></div></div></div>';
-		$('#cuerpo').html(contenido);
-		$.hideLoading();
-		
-		
-	} else {
-		
-		$.get("http://"+ registro + "/servicios/tv.php",{room: room, uid: uid}, tvres, "jsonp");
- 
-		function tvres(respuesta){
-	 
-			console.log("gogo smarthome!");
+		if (online){
+			if (registro == null){
+				
+				// TV no registrado, imprimo formulario para registrarlo.
+				var contenido = '<div class="container content px-5"> <div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden"> <div class="col-6 vh-67 my-vh-1-5"> <div class="row d-flex flex-column"> <div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <h1 class="card-title text-warning">SmartHotel TV</h1> <p class="card-text">Este TV aún no se encuentra registrado en SmartHost, ingrese los datos y registrelo:</p></div></div></div><div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <div class="row"> <div class="col-5 mx-4 border border-light">Dirección SmartHost</div><div class="col-5 text-center border border-light"><input type="text" id="ip" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">IP Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="ip_device" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">Serial Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="serial" placeholder="xxxx" ></div><div class="w-100"></div><div class="col-5 mx-4 mt-2 border border-light">Habitación</div><div class="col-5 mt-2 text-center border border-light"><input type="text" id="room" placeholder="xxx" ></div><div class="w-100"></div><div class="col-12 mt-3 text-right"><button onClick="login()"> Registrar! </button></div><div class="w-100"></div></div></div></div></div></div></div></div></div>';
+				$('#cuerpo').html(contenido);
+				$.hideLoading();
+				
+				
+			} else {
+				
+				$.get("http://"+ registro + "/servicios/tv.php",{room: room, uid: uid}, tvres, "jsonp");
+		 
+				function tvres(respuesta){
+			 
+					console.log("gogo smarthome!");
 
-			var contenido = respuesta.contenido;
-			var header = respuesta.header;
+					var contenido = respuesta.contenido;
+					var header = respuesta.header;
+					
+					var contenido = respuesta.contenido;
+					var header = respuesta.header;
+					var reserva = respuesta.reserva;
+					var nombre = respuesta.nombre;
+					//var mensajes = respuesta.mensajes;
+					var urlinfo = respuesta.urlinfo;
+					var salida = respuesta.salida;
+					var llegada = respuesta.llegada;
+					var idioma = respuesta.idioma;
+					
+					//var urlinfo = localStorage.getItem("mem_urlinfo");$('a.infoa').attr("href", urlinfo);
+					localStorage.setItem("mem_urlinfo", urlinfo);
+					localStorage.setItem("mem_reserva", reserva);
+					localStorage.setItem("mem_nombre", nombre);
+					//localStorage.setItem("mem_mensajes", "[]"); no puedo porque nunca tendria mensajes siempre los borraria
+					localStorage.setItem("mem_llegada", llegada);
+					localStorage.setItem("mem_salida", salida);
+					if (idioma != "es"){localStorage.setItem("mem_lenguaje", idioma)}else{localStorage.setItem("mem_lenguaje", null)};
+					
+					//$(header).appendTo("head");
+					$('#cuerpo').html(contenido);
+					
+					$.hideLoading();
+				
+				}
+				
+				
+				}
+		}else{
 			
-			var contenido = respuesta.contenido;
-			var header = respuesta.header;
-			var reserva = respuesta.reserva;
-			var nombre = respuesta.nombre;
-			//var mensajes = respuesta.mensajes;
-			var urlinfo = respuesta.urlinfo;
-			var salida = respuesta.salida;
-			var llegada = respuesta.llegada;
-			//var urlinfo = localStorage.getItem("mem_urlinfo");$('a.infoa').attr("href", urlinfo);
-			localStorage.setItem("mem_urlinfo", urlinfo);
-			localStorage.setItem("mem_reserva", reserva);
-			localStorage.setItem("mem_nombre", nombre);
-			//localStorage.setItem("mem_mensajes", "[]"); no puedo porque nunca tendria mensajes siempre los borraria
-			localStorage.setItem("mem_llegada", llegada);
-			localStorage.setItem("mem_salida", salida);
-			
-			//$(header).appendTo("head");
-			$('#cuerpo').html(contenido);
-			
-			$.hideLoading();
-		
-		}
-		
-		
-		}
-}else{
-	
-var contenido = '<div class="container content px-5"><div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden"><div class="col-6 vh-67 my-vh-1-5"><div class="row d-flex flex-column"><div class="col-12"><div class="card bg-overlay text-white"><div class="card-body"><h1 class="card-title text-warning">SmartHotel TV</h1><p class="card-text justify-content-center">Por favor conectarse a la red del hotel para poder disfrutar de una mejor experiencia en linea !</p></div></div></div><div class="col-12 mt-3 text-right"><button onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')"> Abrir Conexiones </button></div><div class="w-100"></div></div></div></div></div></div></div></div></div> ';
-		$('#cuerpo').html(contenido);
-		$.hideLoading();
+		var contenido = '<div class="alert alert-danger" role="alert" id="msgalerta"> <p><b>Fuera de Línea:</b> Por favor conecte el TV a la red inalámbrica del hotel para disfrutar de una mejor experiencia en línea. <button type="button" onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')" class="close text-red px-1 selectable-contour selectable " data-toggle="collapse" data-target="#msgalerta" aria-label="Close"><span aria-hidden="true">Abrir Conexiones</span></p></button></div><div class="messages-container collapse" id="messagesContainer"><button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span>Sin mensajes nuevos... </p></div></div><div class="container"><div class="row"><div class="col-lg-6"><div class="card bg-overlay text-white overflow-auto"><div id="widgets" class="card-body font-weight-bold"><h1 class="card-title text-yellow ">Bienvenido estimado Huésped!</h1><p class="card-text">Gracias por preferirnos, el equipo esta presto a servirle.</p><table class="custom-table"><tr><td class="text-left">Fecha Check In</td><td></td></tr><tr><td class="text-left">Fecha Check Out</td><td></td></tr><tr><td rowspan="2"><h2>Room: - Fuera de Línea -</h2></td><td><span id="picoyplaca">- Fuera de Línea -</span><br>Pico y Placa</td></tr><tr><td><span class="border-right pr-2"><i class="fas fa-dollar-sign"></i></span><span class="ml-2" >USD <span id="dolar"></span> </span></td></tr><tr><td><span class="border-right pr-2" ><span id="clima"></span>°</span><span class="border-right px-4">Bogota DC</span><span class="px-2"><a href="apps.html"><i class="fas fa-cloud m-auto"></i></a></span></td><td><span class="border-right pr-2"><i class="fas fa-euro-sign"></i></span><span class="ml-2">Euro <span id="euro"></span></span></td></tr></table></div></div></div><div class="col-lg-6"><div class="card text-left overflow-auto text-white"><div class="embed-responsive embed-responsive-16by9"><video autoplay muted controls loop><source src="http://186.116.1.117/video/video.mp4" type="video/mp4"> video no soportado </video></div></div></div></div></div>';
+				$('#cuerpo').html(contenido);
+				$.hideLoading();
 
-}
+		}
 	}
 	
 
@@ -213,6 +218,7 @@ console.log("pido cuenta datos: " +control_reserva +" hab: "+ control_room);
  	 var totalc = totalc + totaltempint;
 	 });
 	 html += '<div><span>Total: </span><span class="price">'+totalc+'</span></div>';
+	 html += '<div class="account-summary text-right text-white"><h4 class="card-title text-yellow ">IMPORTANTE*</h1><br>Estos valores no incluyen cargos por alojamiento, <br>los valores incluyen impoconsumo e iva.</div>';
 	 $("#cuenta").html(html);
 	 $.hideLoading();
 	 
@@ -285,8 +291,12 @@ function checkKey(e){
 
 
 function tvhome(){
-		
-		//console.log("tv home go");
+	
+	var online = navigator.onLine;
+	
+	if (online)	{ 
+
+	//console.log("tv home go");
 		var registro = "186.116.1.117";
 		var room = localStorage.getItem("mem_room");
 		var nombre = localStorage.getItem("mem_nombre");
@@ -296,19 +306,25 @@ function tvhome(){
 		//var uid = "23423423432";	
 		
 		$.get("http://"+ registro + "/servicios/tv-home.php",{room: room, uid: uid, nombre: nombre, llegada: llegada, salida: salida}, tvres, "jsonp");
- 
+
 		function tvres(respuesta){
 	 
 
-		var contenido = respuesta.contenido;
-		
-		//$(header).appendTo("head");
-		$('#widgets').html(contenido);
-		
-		$.hideLoading();
+			var contenido = respuesta.contenido;
+			
+			//$(header).appendTo("head");
+			$('#widgets').html(contenido);
+			
+			$.hideLoading();
 		
 		}
 		
+
+	} else {
+		var contenido = '<div class="alert alert-danger" role="alert" id="msgalerta"> <p><b>Fuera de Línea:</b> Por favor conecte el TV a la red inalámbrica del hotel para disfrutar de una mejor experiencia en línea. <button type="button" onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')" class="close text-red px-1 selectable-contour selectable " data-toggle="collapse" data-target="#msgalerta" aria-label="Close"><span aria-hidden="true">Abrir Conexiones</span></p></button></div><div class="messages-container collapse" id="messagesContainer"><button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span>Sin mensajes nuevos... </p></div></div><div class="container"><div class="row"><div class="col-lg-6"><div class="card bg-overlay text-white overflow-auto"><div id="widgets" class="card-body font-weight-bold"><h1 class="card-title text-yellow ">Bienvenido estimado Huésped!</h1><p class="card-text">Gracias por preferirnos, el equipo esta presto a servirle.</p><table class="custom-table"><tr><td class="text-left">Fecha Check In</td><td></td></tr><tr><td class="text-left">Fecha Check Out</td><td></td></tr><tr><td rowspan="2"><h2>Room: - Fuera de Línea -</h2></td><td><span id="picoyplaca">- Fuera de Línea -</span><br>Pico y Placa</td></tr><tr><td><span class="border-right pr-2"><i class="fas fa-dollar-sign"></i></span><span class="ml-2" >USD <span id="dolar"></span> </span></td></tr><tr><td><span class="border-right pr-2" ><span id="clima"></span>°</span><span class="border-right px-4">Bogota DC</span><span class="px-2"><a href="apps.html"><i class="fas fa-cloud m-auto"></i></a></span></td><td><span class="border-right pr-2"><i class="fas fa-euro-sign"></i></span><span class="ml-2">Euro <span id="euro"></span></span></td></tr></table></div></div></div><div class="col-lg-6"><div class="card text-left overflow-auto text-white"><div class="embed-responsive embed-responsive-16by9"><video autoplay muted controls loop><source src="http://186.116.1.117/video/video.mp4" type="video/mp4"> video no soportado </video></div></div></div></div></div>';
+		$('#cuerpo').html(contenido);
+		$.hideLoading();
+	}
 }
 
 	var days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
@@ -325,11 +341,15 @@ function servicios(){
 	//Miércoles 9 de octubre de 2018 Hora: 5:00 p
 	var fechaTop = days[date.getDay()] +" "+ date.getDate() + " de " + monthNames[date.getMonth()] + " de " + date.getFullYear() + " |";
 	var horaTop =  date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: "America/Bogota" }); //date.getHours()+":"+date.getMinutes();
-//	var fechaSoloDia = "Octubre " + date.getDate();
+	//var fechaSoloDia = "Octubre " + date.getDate();
+	console.log("Servicios ");
 	
 	$('#fecha_top').html(fechaTop);
 	$('#hora_top').html(horaTop);
 
+	var online = navigator.onLine;
+	
+	if (online)	{
 	
 		var registro = "186.116.1.117";
 		var room = localStorage.getItem("mem_room");
@@ -337,7 +357,7 @@ function servicios(){
 		if (mem_mensa == null) {var mem_mensa = "[]";}
 		var mensajes = JSON.parse(mem_mensa);
 		var mensajesNew = [];
-		//var uid = "23423423432";
+		var uid = "23423423432";
 		
 		$.get("http://"+ registro + "/servicios/servicios.php",{room: room}, tvres, "jsonp");
 
@@ -353,17 +373,20 @@ function servicios(){
 				$.each(mensajesNew, function() {
 					html += '<div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span> '+this['mensaje']+'</p></div>';
 				});
-				$("#messagesContainer").append( html );
+				$("#messagesContainer").prepend( html );
 				localStorage.setItem("mem_mensajes",JSON.stringify(mensajesNew));
 				$('.notify-badge').html(mensajesNew.length);
 		 		$.hideLoading();
 					console.log("lengths: " + mensajes.length + mensajesNew.length);
 					if(mensajes.length < mensajesNew.length){
-					var audio = new Audio('mensaje.mp3');
-					audio.play();
+					document.getElementById('mensajeaudio').play();
 					}
 			}
-		
+	} else {
+		var contenido = '<div class="alert alert-danger" role="alert" id="msgalerta"> <p><b>Fuera de Línea:</b> Por favor conecte el TV a la red inalámbrica del hotel para disfrutar de una mejor experiencia en línea. <button type="button" onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')" class="close text-red px-1 selectable-contour selectable " data-toggle="collapse" data-target="#msgalerta" aria-label="Close"><span aria-hidden="true">Abrir Conexiones</span></p></button></div><div class="messages-container collapse" id="messagesContainer"><button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span>Sin mensajes nuevos... </p></div></div><div class="container"><div class="row"><div class="col-lg-6"><div class="card bg-overlay text-white overflow-auto"><div id="widgets" class="card-body font-weight-bold"><h1 class="card-title text-yellow ">Bienvenido estimado Huésped!</h1><p class="card-text">Gracias por preferirnos, el equipo esta presto a servirle.</p><table class="custom-table"><tr><td class="text-left">Fecha Check In</td><td></td></tr><tr><td class="text-left">Fecha Check Out</td><td></td></tr><tr><td rowspan="2"><h2>Room: - Fuera de Línea -</h2></td><td><span id="picoyplaca">- Fuera de Línea -</span><br>Pico y Placa</td></tr><tr><td><span class="border-right pr-2"><i class="fas fa-dollar-sign"></i></span><span class="ml-2" >USD <span id="dolar"></span> </span></td></tr><tr><td><span class="border-right pr-2" ><span id="clima"></span>°</span><span class="border-right px-4">Bogota DC</span><span class="px-2"><a href="apps.html"><i class="fas fa-cloud m-auto"></i></a></span></td><td><span class="border-right pr-2"><i class="fas fa-euro-sign"></i></span><span class="ml-2">Euro <span id="euro"></span></span></td></tr></table></div></div></div><div class="col-lg-6"><div class="card text-left overflow-auto text-white"><div class="embed-responsive embed-responsive-16by9"><video autoplay muted controls loop><source src="http://186.116.1.117/video/video.mp4" type="video/mp4"> video no soportado </video></div></div></div></div></div>';
+		$('#cuerpo').html(contenido);
+		$.hideLoading();
+	}	
 }
 
 
@@ -375,13 +398,7 @@ $(document).ready(function(){
 $(document).keydown (checkKey);
 		
 	iniMenusActions();
-	servicios();
-//	console.log("ready func!");
-	window.setInterval(function(){	
-	//console.log("Llamo servicios");
-	servicios();
-	}, 20000);
-
+	window.setInterval(function(){servicios()}, 20000);	
 	
 });	
 //var urlinfo = localStorage.getItem("mem_urlinfo"); $('a.infoa').attr("href", urlinfo);

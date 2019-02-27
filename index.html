@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head profile="http://gmpg.org/xfn/11">
+<html lang="es-ES"><head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="format-detection" content="telephone=no" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +25,11 @@
 	<!-- <script src="js/zepto.min.js"></script> -->
 	<script src="js/jquery.loading.min.js"></script> 
 
-
 </head>
 
 <body class="bg-secondary bg-img">
 	<!-- HEADER -->
-	<nav id="top-nav" class="navbar navbar-dark bg-gradient-up-down">
+	<nav id="top-nav" class="navbar navbar-dark bg-gradient-up-down notranslate">
 		<ul class="navbar-nav">
 			<li class="nav-item ml-3  mt-3">
 				<h3 class="text-white">
@@ -44,8 +43,25 @@
 					      		<img src="./imagesjv/icon_envelope.svg"  alt="" />
 					      		<!--<span class="fa fa-envelope"></span>-->
 							
+						</a> |
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('es')">
+					      		<img src="./imgs/es.png" height="25px" width="auto" alt="Translate">
 						</a>
-					</div>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('en')">
+					      		<img src="./imgs/en.png" height="25px" width="auto" alt="Translate">
+						</a>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('pt')">
+					      		<img src="./imgs/pt.png" height="25px" width="auto" alt="Translate">
+						</a>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('fr')">
+					      		<img src="./imgs/fr.png" height="25px" width="auto" alt="Translate">
+						</a>
+						<a class="badged-item d-inline-block selectable-contour selectable" href="#" onClick="traducir('hi')">
+					      		<img src="./imgs/hi.png" height="25px" width="auto" alt="Translate">
+						</a>
+						
+					</div><div id="google_translate_element" style="display:none !important"></div>
+					
 				</h3>
 			</li>
 		</ul>
@@ -54,36 +70,93 @@
 			<img src="./imagesjv/icon_logo.svg" class="align-top" alt="Movich Hotels logo">
 		</a>
 	</nav>
-    
+    <audio id="mensajeaudio" src="mensaje.mp3" preload="auto"></audio>
 <div id="cuerpo">	<!-- EMPIEZA CONTENIDO DINAMICO -->
-    
-<div class="container content px-5">
-		<div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden">
 
-			<!--INFO-->
-			<div class="col-6 vh-67 my-vh-1-5">
-				<div class="row d-flex flex-column">
-<div class="text-center mt-4">
-											<h2  style="text-align: center;color: #ffffff;"><p>... Cargando ... </p></h2>
-										</div>
-				<!-- <section class="wrapper dark">
-				
-				  <div class="spinner">
-					<i></i>
-					<i></i>
-					<i></i>
-					<i></i>
-					<i></i>
-					<i></i>
-					<i></i>
-				  </div>
-				</section>		-->		
-				
+
+<div class="messages-container collapse" id="messagesContainer">
+	<button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<div class="message">
+		<p class="text-justify">
+			<span class="fa fa-caret-right"></span>Sin mensajes nuevos... 
+		</p>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card bg-overlay text-white overflow-auto">
+				<div id="widgets" class="card-body font-weight-bold">
+					<h1 class="card-title text-yellow ">Bienvenido Estimado Huésped!</h1>
+					<p class="card-text">Gracias por preferirnos, el equipo esta presto a servirle.</p>
+					<table class="custom-table">
+						<tr>
+							<td class="text-left">Fecha Check In</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="text-left">Fecha Check Out</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td rowspan="2">
+								<h2>Room: <span id="roomspan"></span></h2>
+							</td>
+							<td>
+								<span id="picoyplaca">- Fuera de Línea -</span>
+								<br>Pico y Placa
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="border-right pr-2">
+										<i class="fas fa-dollar-sign"></i>
+									</span>
+									<span class="ml-2" >USD 
+										<span id="dolar"></span> 
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<span class="border-right pr-2" >
+										<span id="clima"></span>°
+									</span>
+									<span class="border-right px-4">Bogota DC</span>
+									<span class="px-2">
+										<a href="apps.html">
+											<i class="fas fa-cloud m-auto"></i>
+										</a>
+									</span>
+								</td>
+								<td>
+									<span class="border-right pr-2">
+										<i class="fas fa-euro-sign"></i>
+									</span>
+									<span class="ml-2">Euro  
+										<span id="euro"></span>
+									</span>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 			</div>
-
+			<div class="col-lg-6">
+				<div class="card text-left overflow-auto text-white">
+					<div class="embed-responsive embed-responsive-16by9">
+						<video autoplay muted controls loop>
+							<source src="./video/video.mp4" type="video/mp4"> video no soportado 
+							</video>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
+
+
 
 </div>     <!-- TERMINA CONTENIDO DINÁMICO -->
 
@@ -190,11 +263,44 @@
 <script src="js/dmd.js"></script>
 <script src="js/funciones.js"></script>
 <script type="text/javascript">
-	setTimeout(autoIni, 100);
+	$.showLoading({name: 'circle-fade',allowHide: true}); 
+	$("#roomspan").html(localStorage.getItem("mem_room"));
+	setTimeout(autoIni, 300);
 	window.setInterval(function(){
 	tvhome();
-	}, 20000);
+	}, 30000);
 </script>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: "es",includedLanguages: "es,pt,fr,ja,en,hi"}, 'google_translate_element');
+}
+
+function traducir(lenguaje) {
+  var language = lenguaje;
+  localStorage.setItem("mem_lenguaje",language);
+  var selectField = document.querySelector("#google_translate_element select");
+  for(var i=0; i < selectField.children.length; i++){
+    var option = selectField.children[i];
+    if(option.value==language){
+       selectField.selectedIndex = i;
+       selectField.dispatchEvent(new Event('change'));
+       break;
+    }
+  }
+}
+
+</script>
+
+<script type="text/javascript">
+function autoTranslate(){
+	var langu = localStorage.getItem("mem_lenguaje");
+	if (langu != null){traducir(langu)};
+}
+
+setTimeout(autoTranslate,500);
+</script>
+<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

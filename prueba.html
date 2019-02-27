@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<style>
+.goog-te-banner-frame {
+  display:none !important;
+}
+
+body {
+top: 0px !important;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>My Web Page</h1>
+
+<p>Hello everybody!</p>
+
+<p>Translate this page.</p>
+
+<!-- hide auto-created selection field completely by hiding it's container -->
+<div id="google_translate_element" style="display:none"></div>
+
+<p>You can translate the content of this page by selecting a language in the input field.</p>
+
+<!-- flag: you can choose language here: en, de, af etc. -->
+<input value="en" id="language"/>
+<button onclick="changeLanguageByButtonClick()">Translate</button>
+
+</body>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: "en",includedLanguages: "es,pt,fr,ja,en,hi"}, 'google_translate_element');
+}
+
+function changeLanguageByButtonClick() {
+  var language = document.getElementById("language").value;
+  var selectField = document.querySelector("#google_translate_element select");
+  for(var i=0; i < selectField.children.length; i++){
+    var option = selectField.children[i];
+    // find desired langauge and change the former language of the hidden selection-field 
+    if(option.value==language){
+       selectField.selectedIndex = i;
+       // trigger change event afterwards to make google-lib translate this side
+       selectField.dispatchEvent(new Event('change'));
+       break;
+    }
+  }
+}
+</script>
+
+<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</html>

@@ -63,9 +63,12 @@
 						<button type="button" id="variable_button1" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="borrartodo()">
 							Reiniciar Terminal
 						</button>
-						<button type="button" id="variable_button1" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="chat()">
+						<button type="button" id="variable_button2" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="chat()">
 							Cache
-						</button
+						</button>
+						<button type="button" id="variable_button3" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="licencia()">
+							Consultar Licencia
+						</button>
 					</div>
 				</nav>
 			</div>
@@ -89,15 +92,6 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-   $(document).ready(function() { try {
-Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
-Muse.Utils.prepHyperlinks(false);/* body */
-Muse.Utils.initWidget('#pamphletu6139', function(elem) { new WebPro.Widget.ContentSlideShow(elem, {contentLayout_runtime:'loose',event:'mouseover',deactivationEvent:'mouseout_trigger',autoPlay:false,displayInterval:3000,transitionStyle:'fading',transitionDuration:300,hideAllContentsFirst:true,shuffle:false,enableSwipe:true}); });/* #pamphletu6139 */
-Muse.Utils.initWidget('.MenuBar', function(elem) { return $(elem).museMenu(); });/* unifiedNavBar */
-Muse.Utils.fullPage('#page');/* 100% height page */
-Muse.Utils.showWidgetsWhenReady();/* body */
-Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
-} catch(e) { Muse.Assert.fail('Error calling selector function:' + e); }});
 
 function aaap(appa){
 	window.launch.app({package:appa, activity:'MainActivity'});
@@ -112,8 +106,51 @@ function chat() {
 localStorage.setItem("mem_mensajes","[]");
 }
 
+function licencia() {
+var uid = device.uuid;
+alert ("Código de Licencia: "+uid);
+}
+
 </script>	
 <script src="js/dmd.js"></script>
+<script type="text/javascript">
+	$.showLoading({name: 'circle-fade',allowHide: true}); 
+	$("#roomspan").html(localStorage.getItem("mem_room"));
+	setTimeout(autoIni, 300);
+	window.setInterval(function(){
+	tvhome();
+	}, 30000);
+</script>
+<script type="text/javascript">
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: "es",includedLanguages: "es,pt,fr,ja,en,hi"}, 'google_translate_element');
+}
+
+function traducir(lenguaje) {
+  var language = lenguaje;
+  var selectField = document.querySelector("#google_translate_element select");
+  for(var i=0; i < selectField.children.length; i++){
+    var option = selectField.children[i];
+    if(option.value==language){
+       selectField.selectedIndex = i;
+       selectField.dispatchEvent(new Event('change'));
+       break;
+    }
+  }
+}
+
+</script>
+
+<script type="text/javascript">
+function autoTranslate(){
+	var langu = localStorage.getItem("mem_lenguaje");
+	if (langu != null){traducir(langu)};
+}
+
+setTimeout(autoTranslate,500);
+</script>
+<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
