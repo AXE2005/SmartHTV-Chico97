@@ -14,6 +14,7 @@
 	<title>Info</title>
 	<script type="text/javascript" src="file:///android_asset/www/cordova.js"></script> 
 	<script src="js/zepto.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body class="bg-secondary bg-img">
@@ -88,7 +89,6 @@
 	<!--FOOTER-->
 	
 
-	<script src="js/jquery-3.3.1.slim.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
@@ -103,12 +103,20 @@ location.href = "index.html";
 }
 
 function chat() {
-localStorage.setItem("mem_mensajes","[]");
+
+	localStorage.setItem["mem_mensajes","[]"];
+
 }
 
 function licencia() {
-var uid = device.uuid;
-alert ("Código de Licencia: "+uid);
+	
+	var url = cordova.file.externalRootDirectory + "licencia.json";
+	$.get(url,{room:"a"}, res);
+	
+	function res(response){
+		alert("Cod de Licencia de este terminal es: " + response);
+	}
+	
 }
 
 localStorage.setItem("conf","1");

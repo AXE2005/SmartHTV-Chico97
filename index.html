@@ -146,11 +146,7 @@
 			</div>
 			<div class="col-lg-6">
 				<div class="card text-left overflow-auto text-white">
-					<div class="embed-responsive embed-responsive-16by9">
-						<video autoplay muted controls loop>
-							<source src="./video/video.mp4" type="video/mp4"> video no soportado 
-							</video>
-						</div>
+					Cargando contenido multimedia...
 					</div>
 				</div>
 			</div>
@@ -265,7 +261,7 @@
 <script type="text/javascript">
 	$.showLoading({name: 'circle-fade',allowHide: true}); 
 	$("#roomspan").html(localStorage.getItem("mem_room"));
-	setTimeout(autoIni, 300);
+	setTimeout(autoIni, 500);
 	window.setInterval(function(){
 	tvhome();
 	}, 30000);

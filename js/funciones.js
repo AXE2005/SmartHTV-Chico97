@@ -1,42 +1,54 @@
 
+
+
 	function login(){
-		
-		//var uid = "2323242142";
-		var uid = device.uuid;
+		//var uid = device.uuid;
 		var room_form = $("#room").val();
 		var ip_form = $("#ip").val();
 		var ip_device = $("#ip_device").val();
 		var serial = $("#serial").val();
 		var versionSmart = "1.0";
 		
-		localStorage.setItem("mem_registro", ip_form);
-		localStorage.setItem("mem_room", room_form);
-		
-		
-		$.get("http://"+ ip_form + "/servicios/tv.php",{room: room_form, uid: uid, version: versionSmart, ip: ip_device, serial: serial}, tvres, "jsonp");
- 
-		function tvres(respuesta){
-	 
-			console.log("parseo respuesta header y contenido ");
+		var url = cordova.file.externalRootDirectory + "licencia.json";
+		$.get(url,{room:"a"}, res);
 
-			var contenido = respuesta.contenido;
-			var header = respuesta.header;
-			var reserva = respuesta.reserva;
-			var nombre = respuesta.nombre;
-			var mensajes = respuesta.mensajes;
-			var salida = respuesta.salida;
-			var llegada = respuesta.llegada;
-			var idioma = respuesta.idioma;
-			
-			localStorage.setItem("mem_reserva", reserva);
-			localStorage.setItem("mem_nombre", nombre);
-			localStorage.setItem("mem_llegada", llegada);
-			localStorage.setItem("mem_salida", salida);
-			localStorage.setItem("mem_mensajes","[]");
-			if (idioma == "es"){localStorage.setItem("mem_lenguaje", idioma)}else{localStorage.setItem("mem_lenguaje", null)};
-			
-			$(header).appendTo("head");
-			$('#cuerpo').html(contenido);
+		function res(response){
+			//localStorage.setItem["mem_licencia",response];
+			var uid = response;
+			localStorage.setItem("mem_lic", uid);
+			localStorage.setItem("mem_registro", ip_form);
+			localStorage.setItem("mem_room", room_form);
+
+
+			$.get("http://"+ ip_form + "/servicios/tv.php",{room: room_form, uid: uid, version: versionSmart, ip: ip_device, serial: serial}, tvres, "jsonp");
+
+			function tvres(respuesta){
+
+				console.log("parseo respuesta header y contenido ");
+
+				var contenido = respuesta.contenido;
+				var header = respuesta.header;
+				var reserva = respuesta.reserva;
+				var nombre = respuesta.nombre;
+				var mensajes = respuesta.mensajes;
+				var salida = respuesta.salida;
+				var llegada = respuesta.llegada;
+				var idioma = respuesta.idioma;
+
+				localStorage.setItem("mem_reserva", reserva);
+				localStorage.setItem("mem_nombre", nombre);
+				localStorage.setItem("mem_llegada", llegada);
+				localStorage.setItem("mem_salida", salida);
+				localStorage.setItem("mem_mensajes","[]");
+				if (idioma == "es"){localStorage.setItem("mem_lenguaje", idioma)}else{localStorage.setItem("mem_lenguaje", null)};
+
+				$(header).appendTo("head");
+				$('#cuerpo').html(contenido);
+
+
+			}
+
+		
 		
 		}
 	}
@@ -54,9 +66,10 @@
 	var registro = localStorage.getItem("mem_registro");
 	//var registro = "186.116.1.117";
 	var room = localStorage.getItem("mem_room");
-	//var uid = "23423423432";
+	//var uid = "100000000002";
+	var uid = localStorage.getItem("mem_lic");
 	var online = navigator.onLine;
-	var uid = device.uuid;
+	//var uid = device.uuid;
 	//alert ("uid es: " +uid);
 		if (online){
 			if (registro == null){
@@ -121,6 +134,7 @@ function print_vuelos()
 	$.showLoading({name: 'circle-fade',allowHide: true}); 
 //	alert ("inicio vuelos");
 	var control_name_vuelos = localStorage.getItem("nombredb");
+	var registro = localStorage.getItem("mem_registro");
 	/*
 	var control_vueloshtml = localStorage.getItem("mem_vueloshtml");	
 	if(control_vueloshtml){
@@ -145,7 +159,7 @@ function print_vuelos()
 	}else{*/
 
 	
-						$.get("http://186.116.1.117/servicios/vuelos.php",{nombre: control_name_vuelos}, vuelosres, "jsonp");
+						$.get("http://"+registro+"/servicios/vuelos.php",{nombre: control_name_vuelos}, vuelosres, "jsonp");
  function vuelosres(respuesta){
 	 
 	 console.log("parseo respuesta vuelos solos: " + respuesta);
@@ -204,9 +218,10 @@ function print_cuenta(){
 	$.showLoading({name: 'circle-fade',allowHide: true});
 var control_reserva = localStorage.getItem("mem_reserva");
 var control_room = localStorage.getItem("mem_room");
+	var registro = localStorage.getItem("mem_registro");
 console.log("pido cuenta datos: " +control_reserva +" hab: "+ control_room);
 
-						$.get("http://186.116.1.117/servicios/cuenta.php",{reserva: control_reserva,room: control_room}, cuentares, "jsonp");
+						$.get("http://"+registro+"/servicios/cuenta.php",{reserva: control_reserva,room: control_room}, cuentares, "jsonp");
  function cuentares(respuesta){
 	 html ='';
 	 var totalc = 0;
@@ -232,18 +247,19 @@ function goservicios(servicio) {
   var control_nombre = localStorage.getItem("mem_nombre");
   var opcion = $( "#serv_opcion option:selected" ).text();
   var com = $( "#serv_commentarios").val();
+  var registro = localStorage.getItem("mem_registro");
   
   console.log("opcion "+opcion+" com "+com);
   if (servicio == "Ama de llaves") {
-  $.get("http://186.116.1.117/controller/crear_mucama.php",{opcion: opcion,com: com,room: control_room, nombre: control_nombre}, res, "jsonp");
+  $.get("http://"+registro+"/controller/crear_mucama.php",{opcion: opcion,com: com,room: control_room, nombre: control_nombre}, res, "jsonp");
 	function res(respuesta){var cod = respuesta.codigosolicitud;console.log(cod);};
   }
   if (servicio == "Conserjeria") {
-  $.get("http://186.116.1.117/controller/crear_conserje.php",{opcion: opcion,com: com,room: control_room, nombre: control_nombre}, res, "jsonp");
+  $.get("http://"+registro+"/controller/crear_conserje.php",{opcion: opcion,com: com,room: control_room, nombre: control_nombre}, res, "jsonp");
 	function res(respuesta){var cod = respuesta.codigosolicitud;console.log(cod);};
   }
   if (servicio == "Mantenimiento") {
-  $.get("http://186.116.1.117/controller/crear_mantenimiento.php",{opcion: opcion,com: com,room: control_room, nombre: control_nombre}, res, "jsonp");
+  $.get("http://"+registro+"/controller/crear_mantenimiento.php",{opcion: opcion,com: com,room: control_room, nombre: control_nombre}, res, "jsonp");
 	function res(respuesta){var cod = respuesta.codigosolicitud;console.log(cod);};
   }
   
@@ -295,13 +311,14 @@ function tvhome(){
 	if (online)	{ 
 
 	//console.log("tv home go");
-		var registro = "186.116.1.117";
+		var registro = localStorage.getItem("mem_registro");
 		var room = localStorage.getItem("mem_room");
 		var nombre = localStorage.getItem("mem_nombre");
 		var llegada = localStorage.getItem("mem_llegada");		
 		var salida = localStorage.getItem("mem_salida");
-		var uid = device.uuid;
-		//var uid = "23423423432";	
+		//var uid = device.uuid;
+		//var uid = "100000000002";	
+		var uid = localStorage.getItem("mem_lic");
 		
 		$.get("http://"+ registro + "/servicios/tv-home.php",{room: room, uid: uid, nombre: nombre, llegada: llegada, salida: salida}, tvres, "jsonp");
 
@@ -349,21 +366,22 @@ function servicios(){
 	
 	if (online)	{
 	
-		var registro = "186.116.1.117";
+		var registro = localStorage.getItem("mem_registro");
 		var room = localStorage.getItem("mem_room");
 		var mem_mensa = localStorage.getItem("mem_mensajes","[]");
 		if (mem_mensa == null) {var mem_mensa = "[]";}
 		var mensajes = JSON.parse(mem_mensa);
 		var mensajesNew = [];
-		var uid = "23423423432";
+		//var uid = "23423423432";
+		var uid = localStorage.getItem("mem_lic");
 		
 		$.get("http://"+ registro + "/servicios/servicios.php",{room: room}, tvres, "jsonp");
 
 			function tvres(respuesta){
- 			//console.log("respuesta: "+JSON.stringify(respuesta, null, 4));			
+ 			//console.log("respuesta: "+JSON.stringify(respuesta, null, 4) + typeof respuesta);			
 				html ='';
 				//mensajesNew = $.merge(mensajes, respuesta);
-				mensajesNew = mensajes.concat(respuesta);
+				mensajesNew = respuesta.concat(mensajes);
 				console.log(typeof mensajesNew);
 				console.log("respuesta 2: "+JSON.stringify(mensajesNew, null, 4));
 				$( ".message" ).remove();
