@@ -17,13 +17,15 @@
 
 	<title>Home</title>
 
-	<script src="js/jquery-3.3.1.min.js"></script> 
-	<script src="js/bootstrap.min.js"></script> 
-	<script src="js/jquery.navigate.js"></script>
-	<script src="js/custom-keyboard-navigation.js"></script>
+	<script async defer src="js/jquery-3.3.1.min.js"></script> 
+	<script async defer src="js/bootstrap.min.js"></script> 
+	<script async defer src="js/jquery.navigate.js"></script>
+	<script async defer src="js/custom-keyboard-navigation.js"></script>
    	<script type="text/javascript" src="file:///android_asset/www/cordova.js"></script> 
-	<!-- <script src="js/zepto.min.js"></script> -->
-	<script src="js/jquery.loading.min.js"></script> 
+	<!-- <script src="js/zepto.min.js"></script> 
+	<preference name="loadUrlTimeoutValue" value="700000"/> -- En el config.xml -- más el async defer por siaca
+	-->
+	<script async defer src="js/jquery.loading.min.js"></script> 
 
 </head>
 
@@ -256,8 +258,8 @@
 
 		
 	</nav>
-<script src="js/dmd.js"></script>
-<script src="js/funciones.js"></script>
+<script async defer src="js/dmd.js"></script>
+<script async defer src="js/funciones.js"></script>
 <script type="text/javascript">
 	$.showLoading({name: 'circle-fade',allowHide: true}); 
 	$("#roomspan").html(localStorage.getItem("mem_room"));
@@ -297,7 +299,7 @@ function autoTranslate(){
 setTimeout(autoTranslate,500);
 
 </script>
-<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script async defer type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>
