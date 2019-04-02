@@ -159,8 +159,9 @@ function wifiSignal(returnVal){
 	var maxStrength = -50; 
 	var minStrength = -120; 
 	var percentage = Math.round(100 - Math.max(0, Math.min((returnVal - maxStrength) / (minStrength - maxStrength), 1) * 100));	
-	/*Begin Theme Specific Editible Code*/
-		$('#wifiSignal h3').text('wifi - '+percentage+'%');
+	/*Begin Theme Specific Editible Code
+		$('#wifiSignal h3').text('wifi - '+percentage+'%');*/
+	localStorage.setItem("mem_wifi", percentage);
 	/*End Theme Specific Editible Code*/
 }
 

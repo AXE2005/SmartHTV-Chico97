@@ -369,13 +369,14 @@ function servicios(){
 		var registro = localStorage.getItem("mem_registro");
 		var room = localStorage.getItem("mem_room");
 		var mem_mensa = localStorage.getItem("mem_mensajes","[]");
+		var wifi = localStorage.getItem("mem_wifi");
 		if (mem_mensa == null) {var mem_mensa = "[]";}
 		var mensajes = JSON.parse(mem_mensa);
 		var mensajesNew = [];
 		//var uid = "23423423432";
 		var uid = localStorage.getItem("mem_lic");
 		
-		$.get("http://"+ registro + "/servicios/servicios.php",{room: room}, tvres, "jsonp");
+		$.get("http://"+ registro + "/servicios/servicios.php",{room: room, wifi: wifi}, tvres, "jsonp");
 
 			function tvres(respuesta){
  			//console.log("respuesta: "+JSON.stringify(respuesta, null, 4) + typeof respuesta);			

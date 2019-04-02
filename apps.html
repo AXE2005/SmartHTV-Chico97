@@ -64,8 +64,11 @@
 						<button type="button" id="variable_button1" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="borrartodo()">
 							Reiniciar Terminal
 						</button>
+						<button type="button" id="variable_button3" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="wifi()">
+							Revisar intensidad WIFI
+						</button>
 						<button type="button" id="variable_button2" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="chat()">
-							Cache
+							Chat Cache
 						</button>
 						<button type="button" id="variable_button3" class="text-left mb-2 p-4 btn btn-warning c-font-z c-with" onclick="licencia()">
 							Consultar Licencia
@@ -119,6 +122,15 @@ function licencia() {
 	
 }
 
+		
+function chat() {
+
+	var wifi = localStorage.getItem("mem_wifi");
+	alert (wifi + "%");
+
+}
+		
+		
 localStorage.setItem("conf","1");
 
 </script>	
