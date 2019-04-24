@@ -181,6 +181,9 @@ var cart = [];
 
 function addProduct() {
   console.log("addProduct");
+    if(localStorage.getItem('productos')!==null){
+    var products = JSON.parse(localStorage.getItem('productos'));
+	}
   var productoID = $("#productId").val();
   var nombreProd = $( "#nombreProducto").html();
   var precio = $( "#productPrice").html();
