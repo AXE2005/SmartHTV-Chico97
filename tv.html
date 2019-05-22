@@ -262,6 +262,7 @@
 	</nav>
   <script type="text/javascript">
   	var displaying='';
+	var noti = 0;
   	function loadContent(btn){
   		var animation="slideInRight";
   		$("#variableContent").hide();
@@ -272,21 +273,27 @@
   				$("#varImage").attr("src","imgs/manualcontrol.png");
 				break;
 			case("Cine"):
+			if (noti > 0) {}else{noti = noti + 1;alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')}
   				$("#varImage").attr("src","imagesjv/cine.png");
 				break;
   			case("Variedades"):
+			if (noti > 0) {}else{noti = noti + 1;alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')}
 				$("#varImage").attr("src","imagesjv/variedades.png")
 				break;
   			case("Deportes"):
+			if (noti > 0) {}else{noti = noti + 1;alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')}
 				$("#varImage").attr("src","imagesjv/deportes.png")
 				break;
   			case("Opinión"):
+			if (noti > 0) {}else{noti = noti + 1;alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')}
 				$("#varImage").attr("src","imagesjv/opinion.png")
 				break;	
   			case("Series"):
+			if (noti > 0) {}else{noti = noti + 1;alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')}
 				$("#varImage").attr("src","imagesjv/series.png")
 				break;
   			case("HD"):
+			if (noti > 0) {}else{noti = noti + 1;alert('Presione go-TV en su control remoto y coloque el número para ver este canal de TV')}
 				$("#varImage").attr("src","imagesjv/hd.png")
 				break;													
   		}

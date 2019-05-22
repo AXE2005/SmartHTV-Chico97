@@ -396,9 +396,17 @@ function hideEdit() {
       <div class="modal-body" id="messageBody">
         <p>Modal body text goes here.</p>
       </div>
-      <div class="modal-footer" id="modalFooter">
-        <button type="button" class="btn-text btn-border-inside selectable-contour selectable" data-dismiss="modal"><span>Cancelar</span></button>
-        <button type="button" class="btn-text btn-border-inside selectable-contour selectable" onclick="sendPedido()"><span>Enviar orden</span></button>
+      <div id="futer" class="text-center px-2 py-2 border-top">
+      <div class="py-2">
+        <button type="button" class="btn-text btn-border-inside selectable-contour selectable" onclick="sendPedido('CargoCuenta')"><span>Cargo a la Cuenta</span></button>
+      </div>
+      <div class="py-2">
+        <button type="button" class="btn-text btn-border-inside selectable-contour selectable" onclick="sendPedido('Efectivo')"><span>Efectivo</span></button>
+      </div>
+      <div class="py-2">
+        <button type="button" class="btn-text btn-border-inside selectable-contour selectable" onclick="sendPedido('TarjetaCredito')"><span>Tarjeta de Crédito</span></button>
+      </div>
+        <!-- <button type="button" class="btn-text btn-border-inside selectable-contour selectable" data-dismiss="modal"><span>Cancelar</span></button> -->
       </div>
     </div>
   </div>

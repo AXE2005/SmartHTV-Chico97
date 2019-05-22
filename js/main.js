@@ -181,6 +181,7 @@ var cart = [];
 
 function addProduct() {
   console.log("addProduct");
+  var products = [];
     if(localStorage.getItem('productos')!==null){
     var products = JSON.parse(localStorage.getItem('productos'));
 	}
@@ -349,7 +350,7 @@ function obtenerTotal(products){
 
 function confirmarPedido(){
   var total=obtenerTotal();
-  var msg="<p>Deseas confirmar tu pedido por valor de "+total+".</p>";
+  var msg="<p>Para confirmar tu pedido por valor de "+total+" selecciona el método de pago que deseas usar:</p>";
   
   showMessage(msg,false);
 }
@@ -360,7 +361,7 @@ location.href = "room_service.html";
 }
 
 
-function sendPedido(){
+function sendPedido(pago){
 	
 	if(localStorage.getItem('productos')!==null){
     products = JSON.parse(localStorage.getItem('productos'));
@@ -374,7 +375,7 @@ function sendPedido(){
      $.ajax({
      type: "POST",
      url: url,
-     data: {arr: JSON.stringify(products)},
+ 	 data: {arr: JSON.stringify(products), pago: pago},
      success: function(data){
         //alert("Su orden ha sido enviada, nos encontramos procesandola.");
         console.log("success:",data);

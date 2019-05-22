@@ -139,7 +139,7 @@
 				<div id="variableContent" class="card border-0 overflow-auto pt-3" style="display: block;" > 
 					<img id="varImage" class="card-img-top" src="imgs/guia_bogota.png" > 
 				</div>
-				<div style="position: fixed ; left: 0 ; bottom: 0 ; z-index: 1 ;"><img src="imgs/lure.png" ></div>
+				<!--<div style="position: fixed; right: 5%; top: 73%; z-index: 1;"><img id="logolure" style="display: none;" src="imgs/lure.png" ></div>-->
 			</div>
 
 		</div>
@@ -260,6 +260,7 @@
   	function loadContent(btn){
   		var animation="slideInRight";
   		$("#variableContent").hide();
+		$("#logolure").hide();
   		var btnName=$(btn)[0].innerText;
   		//$("#varTitle").html(btnName);
   		switch(btnName){
@@ -268,11 +269,14 @@
 				break;
 			case("Lo Imperdible"):
   				$("#varImage").attr("src","imgs/guia_imperdible.png");
+				
 				break;
   			case("Que Hacer en la Zona"):
 				$("#varImage").attr("src","imgs/guia_quehacer.png")
+				
 				break;
   			case("72 Horas en Bogotá"):
+				
 				$("#varImage").attr("src","imgs/guia_72horas.png")
 				break;
   			case("Guia Lure"):
