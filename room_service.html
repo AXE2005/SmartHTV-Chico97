@@ -251,7 +251,7 @@
 
 				
 				
-				<a id="selectedDefault" class="btn menu-icon selectable active" href="./room_service.html">
+				<a id="selectedDefault" class="btn menu-icon selectable active" onclick="goRoom()" href="./room_service.html">
 					<div class="col text-center icon-contour">
 						<img src="./imagesjv/icon_room_service.svg">
 						<div class="overlay-darken bg-gradient-down-up"></div>
@@ -315,7 +315,9 @@
 		
 	</nav>
   <script type="text/javascript">
-
+	function goRoom(){
+	localStorage.setItem('productos',"[]");
+	}
 
 $(document).ready(function(){
 

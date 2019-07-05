@@ -202,7 +202,7 @@
 			</a>
 
 			
-			<a class="btn menu-icon selectable" href="./room_service.html">
+			<a class="btn menu-icon selectable" onclick="goRoom()" href="./room_service.html">
 				<div class="col text-center icon-contour">
 					<img src="./imagesjv/icon_room_service.svg">
 					<div class="overlay-darken bg-gradient-down-up"></div>
@@ -267,6 +267,10 @@
 	window.setInterval(function(){
 	tvhome();
 	}, 30000);
+	
+	function goRoom(){
+	localStorage.setItem('productos',"[]");
+	}
 </script>
 <script type="text/javascript">
 

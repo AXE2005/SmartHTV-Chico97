@@ -376,7 +376,7 @@ function servicios(){
 		//var uid = "23423423432";
 		var uid = localStorage.getItem("mem_lic");
 		
-		$.get("http://"+ registro + "/servicios/servicios.php",{room: room, wifi: wifi}, tvres, "jsonp");
+		$.get("http://"+ registro + "/servicios/servicios.php",{room: room, wifi: wifi, version: "1.5"}, tvres, "jsonp");
 
 			function tvres(respuesta){
  			//console.log("respuesta: "+JSON.stringify(respuesta, null, 4) + typeof respuesta);			

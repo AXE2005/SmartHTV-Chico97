@@ -126,6 +126,7 @@ function productos(id){
 
 
 function srcImg(btn,id){
+	$('#commentProducto').val('');
     var nombre = $('#pnom'+id).val();
     var descripcion = $('#pdesc'+id).val();
     var imagen = $('#pimg'+id).val();
