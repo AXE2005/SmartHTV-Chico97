@@ -380,8 +380,9 @@ function sendPedido(pago){
      success: function(data){
         //alert("Su orden ha sido enviada, nos encontramos procesandola.");
         console.log("success:",data);
+		localStorage.setItem('productos',"[]");
 		$("#messageBody").html("<p>Gracias por su pedido, nos encontramos procesandolo ahora mismo, esperamos entregar su orden a la mayor brevedad posible. Disfrute de la experiencia Movich.</p>");
-		$("#modalFooter").html('<a href="index.html"><button type="button" class="btn-text btn-border-inside selectable-contour selectable edit-controls"><span>Cerrar</span></button></a>');
+		$("#futer").html('<a href="index.html"><button type="button" class="btn-text btn-border-inside selectable-contour selectable edit-controls"><span>Cerrar</span></button></a>');
 		//location.href="index.html";
 		},
      failure: function(errMsg) {
