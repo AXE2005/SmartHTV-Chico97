@@ -24,7 +24,7 @@
 
 			function tvres(respuesta){
 
-				console.log("parseo respuesta header y contenido ");
+				console.log("parseo respuesta header y contenido"+respuesta);
 
 				var contenido = respuesta.contenido;
 				var header = respuesta.header;
@@ -84,7 +84,7 @@
 		 
 				function tvres(respuesta){
 			 
-					console.log("gogo smarthome!");
+					console.log("tv.php "+respuesta);
 
 					var contenido = respuesta.contenido;
 					var header = respuesta.header;

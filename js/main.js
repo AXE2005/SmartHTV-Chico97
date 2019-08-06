@@ -55,7 +55,8 @@ $.ajaxSetup({ cache: false });
 function categorias(room){
 
 $.ajaxSetup({ cache: false });
-        $.getJSON("http://172.20.8.50/backend/categorias_read.php", function(data){ 
+        //$.getJSON("http://172.20.8.50/backend/categorias_read.php", function(data){ 
+		var data = {"data":[{"id":"7","nombre":"Entradas Fr\u00edas"},{"id":"8","nombre":"Entradas Calientes"},{"id":"9","nombre":"Sopas"},{"id":"10","nombre":"Ensaladas"},{"id":"11","nombre":"Pastas"},{"id":"12","nombre":"S\u00e1nduches"},{"id":"14","nombre":"Hamburguesas"},{"id":"15","nombre":"Wraps"},{"id":"16","nombre":"Postres"},{"id":"17","nombre":"Bebidas  Frias"},{"id":"18","nombre":"Licores"},{"id":"19","nombre":"Aguas y Gaseosas "}]};
 
            //rooms(room);
            
@@ -87,7 +88,7 @@ $.ajaxSetup({ cache: false });
             window.setTimeout( function(){
               iniMenusActions();
             }, 100);
-        });
+        //});
 
 }
 
