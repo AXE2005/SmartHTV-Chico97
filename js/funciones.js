@@ -13,7 +13,7 @@
 		$.get(url,{room:"a"}, res);
 
 		function res(response){
-			//localStorage.setItem["mem_licencia",response];
+			localStorage.setItem["mem_licencia",response];
 			var uid = response;
 			localStorage.setItem("mem_lic", uid);
 			localStorage.setItem("mem_registro", ip_form);
@@ -68,10 +68,8 @@
 	var room = localStorage.getItem("mem_room");
 	//var uid = "100000000002";
 	var uid = localStorage.getItem("mem_lic");
-	var online = navigator.onLine;
 	//var uid = device.uuid;
 	//alert ("uid es: " +uid);
-		if (online){
 			if (registro == null){
 				
 				// TV no registrado, imprimo formulario para registrarlo.
@@ -119,13 +117,7 @@
 				
 				
 				}
-		}else{
-			
-		var contenido = '<div class="alert alert-danger" role="alert" id="msgalerta"> <p><b>Fuera de Línea:</b> Por favor conecte el TV a la red inalámbrica del hotel para disfrutar de una mejor experiencia en línea. <button type="button" onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')" class="close text-red px-1 selectable-contour selectable " data-toggle="collapse" data-target="#msgalerta" aria-label="Close"><span aria-hidden="true">Abrir Conexiones</span></p></button></div><div class="messages-container collapse" id="messagesContainer"><button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span>Sin mensajes nuevos... </p></div></div><div class="container"><div class="row"><div class="col-lg-6"><div class="card bg-overlay text-white overflow-auto"><div id="widgets" class="card-body font-weight-bold"><h1 class="card-title text-yellow ">Bienvenido estimado Huésped!</h1><p class="card-text">Gracias por preferirnos, el equipo esta presto a servirle.</p><table class="custom-table"><tr><td class="text-left">Fecha Check In</td><td></td></tr><tr><td class="text-left">Fecha Check Out</td><td></td></tr><tr><td rowspan="2"><h2>Room: - Fuera de Línea -</h2></td><td><span id="picoyplaca">- Fuera de Línea -</span><br>Pico y Placa</td></tr><tr><td><span class="border-right pr-2"><i class="fas fa-dollar-sign"></i></span><span class="ml-2" >USD <span id="dolar"></span> </span></td></tr><tr><td><span class="border-right pr-2" ><span id="clima"></span>°</span><span class="border-right px-4">Bogota DC</span><span class="px-2"><a href="apps.html"><i class="fas fa-cloud m-auto"></i></a></span></td><td><span class="border-right pr-2"><i class="fas fa-euro-sign"></i></span><span class="ml-2">Euro <span id="euro"></span></span></td></tr></table></div></div></div><div class="col-lg-6"><div class="card text-left overflow-auto text-white"><div class="embed-responsive embed-responsive-16by9"><video autoplay muted controls loop><source src="http://186.116.1.117/video/video.mp4" type="video/mp4"> video no soportado </video></div></div></div></div></div>';
-				$('#cuerpo').html(contenido);
-				$.hideLoading();
-
-		}
+	
 	}
 	
 
@@ -305,10 +297,6 @@ function checkKey(e){
 
 
 function tvhome(){
-	
-	var online = navigator.onLine;
-	
-	if (online)	{ 
 
 	//console.log("tv home go");
 		var registro = localStorage.getItem("mem_registro");
@@ -333,13 +321,7 @@ function tvhome(){
 			$.hideLoading();
 		
 		}
-		
 
-	} else {
-		var contenido = '<div class="alert alert-danger" role="alert" id="msgalerta"> <p><b>Fuera de Línea:</b> Por favor conecte el TV a la red inalámbrica del hotel para disfrutar de una mejor experiencia en línea. <button type="button" onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')" class="close text-red px-1 selectable-contour selectable " data-toggle="collapse" data-target="#msgalerta" aria-label="Close"><span aria-hidden="true">Abrir Conexiones</span></p></button></div><div class="messages-container collapse" id="messagesContainer"><button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span>Sin mensajes nuevos... </p></div></div><div class="container"><div class="row"><div class="col-lg-6"><div class="card bg-overlay text-white overflow-auto"><div id="widgets" class="card-body font-weight-bold"><h1 class="card-title text-yellow ">Bienvenido estimado Huésped!</h1><p class="card-text">Gracias por preferirnos, el equipo esta presto a servirle.</p><table class="custom-table"><tr><td class="text-left">Fecha Check In</td><td></td></tr><tr><td class="text-left">Fecha Check Out</td><td></td></tr><tr><td rowspan="2"><h2>Room: - Fuera de Línea -</h2></td><td><span id="picoyplaca">- Fuera de Línea -</span><br>Pico y Placa</td></tr><tr><td><span class="border-right pr-2"><i class="fas fa-dollar-sign"></i></span><span class="ml-2" >USD <span id="dolar"></span> </span></td></tr><tr><td><span class="border-right pr-2" ><span id="clima"></span>°</span><span class="border-right px-4">Bogota DC</span><span class="px-2"><a href="apps.html"><i class="fas fa-cloud m-auto"></i></a></span></td><td><span class="border-right pr-2"><i class="fas fa-euro-sign"></i></span><span class="ml-2">Euro <span id="euro"></span></span></td></tr></table></div></div></div><div class="col-lg-6"><div class="card text-left overflow-auto text-white"><div class="embed-responsive embed-responsive-16by9"><video autoplay muted controls loop><source src="http://186.116.1.117/video/video.mp4" type="video/mp4"> video no soportado </video></div></div></div></div></div>';
-		$('#cuerpo').html(contenido);
-		$.hideLoading();
-	}
 }
 
 	var days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
@@ -362,9 +344,6 @@ function servicios(){
 	$('#fecha_top').html(fechaTop);
 	$('#hora_top').html(horaTop);
 
-	var online = navigator.onLine;
-	
-	if (online)	{
 	
 		var registro = localStorage.getItem("mem_registro");
 		var room = localStorage.getItem("mem_room");
@@ -399,11 +378,7 @@ function servicios(){
 					document.getElementById('mensajeaudio').play();
 					}
 			}
-	} else {
-		var contenido = '<div class="alert alert-danger" role="alert" id="msgalerta"> <p><b>Fuera de Línea:</b> Por favor conecte el TV a la red inalámbrica del hotel para disfrutar de una mejor experiencia en línea. <button type="button" onClick="aaap(\'com.android.tv.settings\',\'connectivity.NetworkActivity\')" class="close text-red px-1 selectable-contour selectable " data-toggle="collapse" data-target="#msgalerta" aria-label="Close"><span aria-hidden="true">Abrir Conexiones</span></p></button></div><div class="messages-container collapse" id="messagesContainer"><button type="button" class="close text-white px-1 selectable-contour selectable " data-toggle="collapse" data-target="#messagesContainer" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="message"><p class="text-justify"><span class="fa fa-caret-right"></span>Sin mensajes nuevos... </p></div></div><div class="container"><div class="row"><div class="col-lg-6"><div class="card bg-overlay text-white overflow-auto"><div id="widgets" class="card-body font-weight-bold"><h1 class="card-title text-yellow ">Bienvenido estimado Huésped!</h1><p class="card-text">Gracias por preferirnos, el equipo esta presto a servirle.</p><table class="custom-table"><tr><td class="text-left">Fecha Check In</td><td></td></tr><tr><td class="text-left">Fecha Check Out</td><td></td></tr><tr><td rowspan="2"><h2>Room: - Fuera de Línea -</h2></td><td><span id="picoyplaca">- Fuera de Línea -</span><br>Pico y Placa</td></tr><tr><td><span class="border-right pr-2"><i class="fas fa-dollar-sign"></i></span><span class="ml-2" >USD <span id="dolar"></span> </span></td></tr><tr><td><span class="border-right pr-2" ><span id="clima"></span>°</span><span class="border-right px-4">Bogota DC</span><span class="px-2"><a href="apps.html"><i class="fas fa-cloud m-auto"></i></a></span></td><td><span class="border-right pr-2"><i class="fas fa-euro-sign"></i></span><span class="ml-2">Euro <span id="euro"></span></span></td></tr></table></div></div></div><div class="col-lg-6"><div class="card text-left overflow-auto text-white"><div class="embed-responsive embed-responsive-16by9"><video autoplay muted controls loop><source src="http://186.116.1.117/video/video.mp4" type="video/mp4"> video no soportado </video></div></div></div></div></div>';
-		$('#cuerpo').html(contenido);
-		$.hideLoading();
-	}	
+
 }
 
 

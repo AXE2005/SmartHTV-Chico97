@@ -17,7 +17,7 @@ $.ajaxSetup({ cache: false });
         });
 
 } */
- //var = "http://186.116.1.117/servicios/room.php"
+ //var = "http://172.20.8.50/servicios/room.php"
 
  //var tech = GetURLParameter('room');
 
@@ -31,7 +31,7 @@ $.ajaxSetup({ cache: false });
 
         console.log("ROOM "+room);
 
-        var url = "http://186.116.1.117/servicios/room.php?room="+room;
+        var url = "http://172.20.8.50/servicios/room.php?room="+room;
 
         console.log("URL "+url);
  
@@ -55,7 +55,7 @@ $.ajaxSetup({ cache: false });
 function categorias(room){
 
 $.ajaxSetup({ cache: false });
-        $.getJSON("http://186.116.1.117/backend/categorias_read.php", function(data){ 
+        $.getJSON("http://172.20.8.50/backend/categorias_read.php", function(data){ 
 
            //rooms(room);
            
@@ -94,7 +94,7 @@ $.ajaxSetup({ cache: false });
 function productos(id){
         $.ajaxSetup({ cache: false });
  
-        $.getJSON("http://186.116.1.117/backend/productos_read.php?id_categoria="+id, function(data){ 
+        $.getJSON("http://172.20.8.50/backend/productos_read.php?id_categoria="+id, function(data){ 
            
             var productosResources = $('#contentCat'+id); 
             var arr="";  
@@ -104,12 +104,16 @@ function productos(id){
              jQuery.each(data.data, function( i, val ) {
               arr = val;
               //console.log(val);
+			  let str = val.imagen;
+			  let res = str.split("/");
+			  let imgsolo = res.pop();
+			  let img = "./roomservice/"+imgsolo;
               outputProductos+='<button type="button" class="round-corners-menu-btn selectable activable" onclick="srcImg(this,'+val.id+')">'+
                         val.nombre+
                       '</button>'+
                       '<input type="hidden" id="pnom'+val.id+'" value="'+val.nombre+'">'+
                       '<input type="hidden" id="pdesc'+val.id+'" value="'+val.descripcion+'">'+
-                      '<input type="hidden" id="pimg'+val.id+'" value="'+val.imagen+'">'+
+                      '<input type="hidden" id="pimg'+val.id+'" value="'+img+'">'+
                       '<input type="hidden" id="ppre'+val.id+'" value="'+val.precio+'">';
               //outputProductos+='<div onclick="srcImg('+val.id+');" id="" class="div-m"> <input class="input-width" placeholder="Quantity" id="quantity" type="number"> <span id="nombre'+val.id+'" >'+val.nombre+'</span>  <span id="precio'+val.id+'" class="value-m">'+val.precio+'</span>  <img id="imagen'+val.id+'" style="display: none;" src="'+val.imagen+'"> <input style="display: none;" id="descripcion'+val.id+'" value="'+val.descripcion+'" type="text">  </div>';
             });
@@ -154,7 +158,7 @@ function cuenta(){
     //*****************************  
     //Se comenta porque genera errores de javascript
     //
-    /*var url = "http://186.116.1.117/servicios/cuenta.php?reserva="+res+"&room="+roo;
+    /*var url = "http://172.20.8.50/servicios/cuenta.php?reserva="+res+"&room="+roo;
      console.log("URL CUENTA "+url);
     $.ajax({
        type: "GET",
@@ -368,7 +372,7 @@ function sendPedido(pago){
     products = JSON.parse(localStorage.getItem('productos'));
 	}
 
-    var url = "http://186.116.1.117/controller/crear_orden.php";
+    var url = "http://172.20.8.50/controller/crear_orden.php";
      console.log("URL CUENTA "+url);
      jsonString = JSON.stringify(products);
      console.log(jsonString);
