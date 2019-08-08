@@ -55,8 +55,8 @@ $.ajaxSetup({ cache: false });
 function categorias(room){
 
 $.ajaxSetup({ cache: false });
-        //$.getJSON("http://172.20.8.50/backend/categorias_read.php", function(data){ 
-		var data = {"data":[{"id":"7","nombre":"Entradas Fr\u00edas"},{"id":"8","nombre":"Entradas Calientes"},{"id":"9","nombre":"Sopas"},{"id":"10","nombre":"Ensaladas"},{"id":"11","nombre":"Pastas"},{"id":"12","nombre":"S\u00e1nduches"},{"id":"14","nombre":"Hamburguesas"},{"id":"15","nombre":"Wraps"},{"id":"16","nombre":"Postres"},{"id":"17","nombre":"Bebidas  Frias"},{"id":"18","nombre":"Licores"},{"id":"19","nombre":"Aguas y Gaseosas "}]};
+        $.getJSON("http://172.20.8.50/backend/categorias_read.php", function(data){ 
+		//var data = {"data":[{"id":"7","nombre":"Entradas Fr\u00edas"},{"id":"8","nombre":"Entradas Calientes"},{"id":"9","nombre":"Sopas"},{"id":"10","nombre":"Ensaladas"},{"id":"11","nombre":"Pastas"},{"id":"12","nombre":"S\u00e1nduches"},{"id":"14","nombre":"Hamburguesas"},{"id":"15","nombre":"Wraps"},{"id":"16","nombre":"Postres"},{"id":"17","nombre":"Bebidas  Frias"},{"id":"18","nombre":"Licores"},{"id":"19","nombre":"Aguas y Gaseosas "}]};
 
            //rooms(room);
            
@@ -88,7 +88,7 @@ $.ajaxSetup({ cache: false });
             window.setTimeout( function(){
               iniMenusActions();
             }, 100);
-        //});
+        });
 
 }
 
@@ -105,10 +105,10 @@ function productos(id){
              jQuery.each(data.data, function( i, val ) {
               arr = val;
               //console.log(val);
-			  let str = val.imagen;
-			  let res = str.split("/");
-			  let imgsolo = res.pop();
-			  let img = "./roomservice/"+imgsolo;
+			  var str = val.imagen;
+			  var res = str.split("/");
+			  var imgsolo = res.pop();
+			  var img = "./roomservice/"+imgsolo;
               outputProductos+='<button type="button" class="round-corners-menu-btn selectable activable" onclick="srcImg(this,'+val.id+')">'+
                         val.nombre+
                       '</button>'+

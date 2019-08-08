@@ -35,7 +35,7 @@
 			<li class="nav-item ml-3  mt-3">
 				<h3 class="text-white">
 					<div class="d-inline-block" id="fecha_top">Martes 6 de Agosto de 2019 |</div>
-					<div class="d-inline-block"> Bogotá - <span id="hora_top">1:38 PM</span> | 
+					<div class="d-inline-block"> Bogotá - <span id="hora_top">3:04 PM</span> | 
 						<a class="badged-item d-inline-block selectable-contour selectable" href="#" data-toggle="collapse" data-target="#messagesContainer" aria-expanded="false" aria-controls="variable_info2">
 					  		
 								<span class="notify-badge">1</span>
@@ -97,7 +97,7 @@
 						
 						<nav class="navbar" id="variable_infoParent">
 						
-							<div id="categorias" class="navbar-nav w-100"><button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" data-toggle="collapse" data-target="#cat7" aria-expanded="true" aria-controls="variable_info1">Entradas Frías</button><div class="fade collapse show" id="cat7" aria-labelledby="variable_button1" data-parent="#variable_infoParent" style=""><div class="navbar"><div id="contentCat7" class="navbar-nav w-100 pl-4"><button type="button" class="round-corners-menu-btn selectable activable active" onclick="srcImg(this,49)">Jugo de Fresa</button><input type="hidden" id="pnom49" value="Jugo de Fresa"><input type="hidden" id="pdesc49" value=""><input type="hidden" id="pimg49" value="./roomservice/1551464624_JUGO DE FRESA.JPG"><input type="hidden" id="ppre49" value="6000"><button type="button" class="round-corners-menu-btn selectable activable" onclick="srcImg(this,23)">Empanaditas Vegetarianas</button><input type="hidden" id="pnom23" value="Empanaditas Vegetarianas"><input type="hidden" id="pdesc23" value="Empanadas de Maíz, rellenas con queso o quinua, acompañadas de ají y guacamole.                                    
+							<div id="categorias" class="navbar-nav w-100"><button id="selectedDefault" type="button" class="round-corners-menu-btn selectable activable" data-toggle="collapse" data-target="#cat7" aria-expanded="false" aria-controls="variable_info1">Entradas Frías</button><div class="collapse fade" id="cat7" aria-labelledby="variable_button1" data-parent="#variable_infoParent"><div class="navbar"><div id="contentCat7" class="navbar-nav w-100 pl-4"><button type="button" class="round-corners-menu-btn selectable activable" onclick="srcImg(this,49)">Jugo de Fresa</button><input type="hidden" id="pnom49" value="Jugo de Fresa"><input type="hidden" id="pdesc49" value=""><input type="hidden" id="pimg49" value="./roomservice/1551464624_JUGO DE FRESA.JPG"><input type="hidden" id="ppre49" value="6000"><button type="button" class="round-corners-menu-btn selectable activable" onclick="srcImg(this,23)">Empanaditas Vegetarianas</button><input type="hidden" id="pnom23" value="Empanaditas Vegetarianas"><input type="hidden" id="pdesc23" value="Empanadas de Maíz, rellenas con queso o quinua, acompañadas de ají y guacamole.                                    
                                                                     
                                                                     
                                                                     
@@ -213,15 +213,15 @@ con papas chip.
 
 			<!--seleccion-->
 			<div class="col-lg-4">
-				<div id="variableContent1" class="card border-0 text-left overflow-auto px-2 py-4" style="">
+				<div id="variableContent1" class="card border-0 text-left overflow-auto px-2 py-4" style="display: none">
 					<h4 class="section-title mb-3 mx-0">
 						Cantidad
 					</h4>
 					<div class="service-order mb-3">
 						<div>
-							<span id="nombreProducto" class="label-product">Jugo de Fresa</span>
+							<span id="nombreProducto" class="label-product">Fruta</span>
 							<div class="price-counter">
-								<span id="productPrice">$6000</span>
+								<span id="productPrice">$150.000</span>
 								<a class="btn-icon plus selectable-contour selectable" target="count-item1"><span class="fa fa-plus"></span></a>
 								<span id="count-item1" class="food-count">1</span>
 								<a class="btn-icon minus selectable-contour selectable" target="count-item1"><span class="fa fa-minus"></span></a>
@@ -229,7 +229,7 @@ con papas chip.
 						</div>
 						
 						<div class="total">
-							Total:<span id="totalProducto" class="price">$6000</span>
+							Total:<span id="totalProducto" class="price">&nbsp;&nbsp;$600.000</span>
 						</div>
 					</div>
 					<h4 class="section-title mb-3 mx-0">
@@ -245,12 +245,14 @@ con papas chip.
 
 			<!--resumen-->
 			<div class="col-lg-4">
-				<div id="variableContent2" class="card text-left overflow-auto text-white" style="">
+				<div id="variableContent2" class="card text-left overflow-auto text-white" style="display: none">
 					<div class="overflow-auto pb-4" style="margin-bottom: 5vh !important;padding-bottom: 5vh !important;">
-						<img id="productImage" class="card-img-top" src="./roomservice/1551464624_JUGO DE FRESA.JPG" alt="Food">
+						<img id="productImage" class="card-img-top" src="imagesjv/food.jpg" alt="Food">
 						<div class="card-text my-2 mx-3">
-							<input type="hidden" id="productId" name="productId" value="49">
-							<p id="productDescription" class="text-justify selectable"></p>
+							<input type="hidden" id="productId" name="productId" value="">
+							<p id="productDescription" class="text-justify selectable"> Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+								Quod architecto vero tempore fuga molestiae quidem nam.
+								Perferendis vitae laborum nesciunt aliquam reprehenderit ea!</p>
 							<!--<span id="productPrice1" class="float-right">$15.000</span>-->
 							<br>
 							
@@ -411,7 +413,7 @@ con papas chip.
 
 $(document).ready(function(){
 
-    categorias(101);
+    //categorias(101);
 
     $(".btn-icon.plus").unbind("click").on("click",function(){
     	var span_target=$(this).attr("target");
@@ -469,6 +471,14 @@ $(document).ready(function(){
 <script src="js/funciones.js"></script>
 <script type="text/javascript">
 	$("#roomspan").html(localStorage.getItem("mem_room"));
+	setTimeout(autoIni, 300);
+	window.setInterval(function(){
+	tvhome();
+	}, 30000);
+	
+	window.setTimeout( function(){
+              iniMenusActions();
+    }, 100);
 </script>
 <script type="text/javascript">
 
