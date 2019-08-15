@@ -7,14 +7,14 @@
 		var ip_form = $("#ip").val();
 		var ip_device = $("#ip_device").val();
 		var serial = $("#serial").val();
-		var versionSmart = "1.0";
+		var versionSmart = "1.8";
 		
 		var url = cordova.file.externalRootDirectory + "licencia.json";
 		$.get(url,{room:"a"}, res);
 
 		function res(response){
-			localStorage.setItem["mem_licencia",response];
-			var uid = response;
+			localStorage.setItem["mem_licencia","response"];
+			var uid = "response";
 			localStorage.setItem("mem_lic", uid);
 			localStorage.setItem("mem_registro", ip_form);
 			localStorage.setItem("mem_room", room_form);
@@ -44,6 +44,8 @@
 
 				$(header).appendTo("head");
 				$('#cuerpo').html(contenido);
+				$( '#cuerpo' ).addClass( "col-lg-6" );
+				$( '#cuerpo' ).removeClass( "col-lg-11" );					
 
 
 			}
@@ -75,6 +77,8 @@
 				// TV no registrado, imprimo formulario para registrarlo.
 				var contenido = '<div class="container content px-5"> <div class="row h-100 justify-content-center align-items-center mt-2 mb-2 overflow-hidden"> <div class="col-6 vh-67 my-vh-1-5"> <div class="row d-flex flex-column"> <div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <h1 class="card-title text-warning">SmartHotel TV</h1> <p class="card-text">Este TV aún no se encuentra registrado en SmartHost, ingrese los datos y registrelo:</p></div></div></div><div class="col-12"> <div class="card bg-overlay text-white"> <div class="card-body"> <div class="row"> <div class="col-5 mx-4 border border-light">Dirección SmartHost</div><div class="col-5 text-center border border-light"><input type="text" id="ip" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">IP Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="ip_device" placeholder="xxx.xxx.xxx.xx" ></div><div class="w-100"></div><div class="col-5 mx-4 border border-light">Serial Terminal</div><div class="col-5 text-center border border-light"><input type="text" id="serial" placeholder="xxxx" ></div><div class="w-100"></div><div class="col-5 mx-4 mt-2 border border-light">Habitación</div><div class="col-5 mt-2 text-center border border-light"><input type="text" id="room" placeholder="xxx" ></div><div class="w-100"></div><div class="col-12 mt-3 text-right"><button onClick="login()"> Registrar! </button></div><div class="w-100"></div></div></div></div></div></div></div></div></div>';
 				$('#cuerpo').html(contenido);
+				$( '#cuerpo' ).removeClass( "col-lg-6" );
+				$( '#cuerpo' ).addClass( "col-lg-11" );
 				$.hideLoading();
 				
 				
@@ -110,6 +114,9 @@
 					
 					//$(header).appendTo("head");
 					$('#cuerpo').html(contenido);
+					$( '#cuerpo' ).addClass( "col-lg-6" );
+					$( '#cuerpo' ).removeClass( "col-lg-11" );					
+					$.hideLoading();
 					
 					$.hideLoading();
 				
@@ -124,31 +131,9 @@
 function print_vuelos()
 {
 	$.showLoading({name: 'circle-fade',allowHide: true}); 
-//	alert ("inicio vuelos");
 	var control_name_vuelos = localStorage.getItem("nombredb");
 	var registro = localStorage.getItem("mem_registro");
-	/*
-	var control_vueloshtml = localStorage.getItem("mem_vueloshtml");	
-	if(control_vueloshtml){
 
-		var animation="slideInRight";
-  		$("#variableContent").hide();
-		$("#mainContent").hide();
-  		$("#varTitle").html("Salidas de Vuelos");
-
-		$("#varImage").hide();
-		$("#varText").html(control_vueloshtml);
-					
-  		if(!$('#variableContent').is(':visible')){
-  			$("#variableContent").addClass('animated '+animation);
-  			$("#variableContent").show();	       
-            //wait for animation to finish before removing classes
-            window.setTimeout( function(){
-                $("#variableContent").removeClass('animated '+animation);
-            }, 1000);
-        }
-		console.log("Tengo en memoria asi que imprimo ");
-	}else{*/
 
 	
 						$.get("http://"+registro+"/servicios/vuelos.php",{nombre: control_name_vuelos}, vuelosres, "jsonp");
@@ -156,7 +141,7 @@ function print_vuelos()
 	 
 	 console.log("parseo respuesta vuelos solos: " + respuesta);
 	 html ='';
-	 html +='<div class="introForm" style=" allign:center; width: 90%;"><p>Mostrando los vuelos salientes del aeropuerto local en la pr&oacute;xima hora:</p><br></div>';
+	 html +='<div class="introForm" style=" text-align: center;"><p>Mostrando los vuelos salientes del aeropuerto local en la pr&oacute;xima hora:</p><br><button class="btn-text btn-border-inside selectable-contour selectable edit-controls" onclick="print_vuelosll()"> <span>Ver Llegadas</span> </button></div>';
 	 $.each(respuesta, function() {
 	 html +='<div id="infoVuelo">';
 	 html += '<div class="aerolinea">'+this['aerolinea'];
@@ -184,6 +169,69 @@ function print_vuelos()
   		$("#variableContent").hide();
 		$("#mainContent").hide();
   		$("#varTitle").html("Salidas de Vuelos");
+
+		//$("#varImage").hide();
+		$("#varText").html(html);
+					
+  		if(!$('#variableContent').is(':visible')){
+  			$("#variableContent").addClass('animated '+animation);
+  			$("#variableContent").show();	       
+            //wait for animation to finish before removing classes
+            window.setTimeout( function(){
+                $("#variableContent").removeClass('animated '+animation);
+            }, 1000);
+        }
+		$.hideLoading();
+  	
+	 
+	 
+	 
+	 //}
+	}
+}
+
+
+function print_vuelosll()
+{
+	$.showLoading({name: 'circle-fade',allowHide: true}); 
+	var control_name_vuelos = localStorage.getItem("nombredb");
+	var registro = localStorage.getItem("mem_registro");
+
+
+	
+						$.get("http://"+registro+"/servicios/vuelosll.php",{nombre: control_name_vuelos}, vuelosres, "jsonp");
+ function vuelosres(respuesta){
+	 
+	 //console.log("parseo respuesta vuelos solos: " + respuesta);
+	 html ='';
+	 html +='<div class="introForm" style="text-align: center;"><p>Mostrando los vuelos que llegan al aeropuerto local en las pr&oacute;ximas 3 horas:</p><br><button class="btn-text btn-border-inside selectable-contour selectable edit-controls" onclick="print_vuelos()"> <span>Ver Salidas</span> </button></div>';
+	 $.each(respuesta, function() {
+	 html +='<div id="infoVuelo">';
+	 html += '<div class="aerolinea">'+this['aerolinea'];
+						if(this['delays']){
+						html += '<span id="vuelo" class="pull-right">Vuelo Retrasado '+this['delays']+' Minutos</span></div>';
+						}else{
+							html += '<span id="vuelo" class="pull-right">Estado: '+this['estado']+'</span></div>';
+						}
+						html += '<div class="destino">'+this['avion_salida']+' - '+this['avion_destino']+' / '+this['minutosalaire'];
+                        html += '<span id="vuelo" class="pull-right">Flight '+this['avion_numero']+'</span>';
+                        html += '</div>';
+                        html += '<div class="salida">Salida <span class="pull-right">Llegada</span></div>';
+                        html += '<div class="hora">';
+                        html += '<img src="imagesjv/icon_horario_vuelos.svg" width="20px"></img> '+this['salida'];
+                        html += '<div id="horaLegada" class="pull-right"><span class="fa fa-clock-o"></span> '+this['llegada']+'</div>';
+                        html += '</div>'
+                    	html += '</div>'
+	 
+	 });
+	 
+	 //localStorage.setItem("mem_vueloshtml", html);
+	 
+	 
+  		var animation="slideInRight";
+  		$("#variableContent").hide();
+		$("#mainContent").hide();
+  		$("#varTitle").html("Llegadas de Vuelos");
 
 		//$("#varImage").hide();
 		$("#varText").html(html);

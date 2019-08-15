@@ -327,7 +327,7 @@ function miCarrito() {
             '</div>';
       }
       html+='<div class="total">'+
-                '<span id="productsTotal" class="price">Total:&nbsp;&nbsp;$'+total.toFixed(2)+'</span>'+
+                '<span id="productsTotal" class="price">Total:&nbsp;&nbsp;$'+total.toFixed(2)+' *No incluye Propina</span>'+
               '</div>';
       document.getElementById("carritoContent").innerHTML = html;
     }else{

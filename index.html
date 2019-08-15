@@ -268,10 +268,10 @@
 <script type="text/javascript">
 	//$.showLoading({name: 'circle-fade',allowHide: true});
 	$("#roomspan").html(localStorage.getItem("mem_room"));
-	setTimeout(autoIni, 500);
+	setTimeout(autoIni, 1000);
 	window.setInterval(function(){
 	tvhome();
-	}, 30000);
+	}, 10000);
 	
 	function goRoom(){
 	localStorage.setItem('productos',"[]");
