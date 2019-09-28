@@ -17,7 +17,7 @@ $.ajaxSetup({ cache: false });
         });
 
 } */
- //var = "http://172.20.8.50/servicios/room.php"
+ //var = "http://186.116.1.117/servicios/room.php"
 
  //var tech = GetURLParameter('room');
 
@@ -31,7 +31,7 @@ $.ajaxSetup({ cache: false });
 
         console.log("ROOM "+room);
 
-        var url = "http://172.20.8.50/servicios/room.php?room="+room;
+        var url = "http://186.116.1.117/servicios/room.php?room="+room;
 
         console.log("URL "+url);
  
@@ -55,7 +55,7 @@ $.ajaxSetup({ cache: false });
 function categorias(room){
 
 $.ajaxSetup({ cache: false });
-        $.getJSON("http://172.20.8.50/backend/categorias_read.php", function(data){ 
+        $.getJSON("http://186.116.1.117/backend/categorias_read.php", function(data){ 
 		//var data = {"data":[{"id":"7","nombre":"Entradas Fr\u00edas"},{"id":"8","nombre":"Entradas Calientes"},{"id":"9","nombre":"Sopas"},{"id":"10","nombre":"Ensaladas"},{"id":"11","nombre":"Pastas"},{"id":"12","nombre":"S\u00e1nduches"},{"id":"14","nombre":"Hamburguesas"},{"id":"15","nombre":"Wraps"},{"id":"16","nombre":"Postres"},{"id":"17","nombre":"Bebidas  Frias"},{"id":"18","nombre":"Licores"},{"id":"19","nombre":"Aguas y Gaseosas "}]};
 
            //rooms(room);
@@ -95,7 +95,7 @@ $.ajaxSetup({ cache: false });
 function productos(id){
         $.ajaxSetup({ cache: false });
  
-        $.getJSON("http://172.20.8.50/backend/productos_read.php?id_categoria="+id, function(data){ 
+        $.getJSON("http://186.116.1.117/backend/productos_read.php?id_categoria="+id, function(data){ 
            
             var productosResources = $('#contentCat'+id); 
             var arr="";  
@@ -159,7 +159,7 @@ function cuenta(){
     //*****************************  
     //Se comenta porque genera errores de javascript
     //
-    /*var url = "http://172.20.8.50/servicios/cuenta.php?reserva="+res+"&room="+roo;
+    /*var url = "http://186.116.1.117/servicios/cuenta.php?reserva="+res+"&room="+roo;
      console.log("URL CUENTA "+url);
     $.ajax({
        type: "GET",
@@ -373,7 +373,7 @@ function sendPedido(pago){
     products = JSON.parse(localStorage.getItem('productos'));
 	}
 
-    var url = "http://172.20.8.50/controller/crear_orden.php";
+    var url = "http://186.116.1.117/controller/crear_orden.php";
      console.log("URL CUENTA "+url);
      jsonString = JSON.stringify(products);
      console.log(jsonString);
